@@ -1,0 +1,231 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model SeatAllocation.Models.SeatBookingModel
+@{
+    int SeatAllocation = 0;
+}
+@*<div class="text-center">
+
+</div>*@
+
+@*<link href="~/css/bootstrap.css" rel="stylesheet" />
+<link href="~/css/bootstrap.min.css" rel="stylesheet" />
+
+<link href="~/css/jquery.dataTables.min.css" rel="stylesheet" />*@
+
+@*<link href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="//code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>*@
+
+@*JQuery Data table*@
+@*<link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<link href="https://cdn.datatables.net/scroller/1.5.1/css/scroller.dataTables.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/scroller/1.5.1/js/dataTables.scroller.min.js"></script>
+
+<link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/1.10.20/css/dataTables.jqueryui.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/scroller/2.0.1/css/scroller.jqueryui.min.css" rel="stylesheet" />
+
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>*@
+@*
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+<script src="~/js/datetimepicker.js"></script>
+<link href="~/css/datetimepicker.css" rel="stylesheet" />*@
+
+<!-- Include Bootstrap CDN -->
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+      rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js">
+</script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
+</script>
+
+<!-- Include Moment.js CDN -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js">
+</script>
+
+<!-- Include Bootstrap DateTimePicker CDN -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css"
+      rel="stylesheet">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js">
+</script>
+
+<style>
+    fieldset {
+        margin: 20px;
+        padding: 0 10px 10px;
+        border: 1px solid #666;
+        border-radius: 8px;
+        box-shadow: 0 0 10px #666;
+        padding-top: 10px;
+    }
+
+    legend {
+        padding: 2px 4px;
+        /* background: #fff;*/
+        /* For better legibility against the box-shadow */
+    }
+
+    /*    fieldset > legend {
+                                                                        float: left;
+                                                                        margin-top: -10px;
+                                                                    }
+
+                                                                        fieldset > legend + * {
+                                                                            clear: both;
+                                                                        }*/
+</style>
+
+<div class="row">
+    <div class="row col-sm-12 col-md-12 col-lg-12">
+        @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "frmAddEmployee" }))
+        {
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="control-label">Office Location</label>
+                        <div class="form-group">
+                            @Html.DropDownList("SelectOfficeBranch", new SelectList(Model.OfficeLocations, "Value", "Text"), "--Select--", new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-lg-3 form-group form-inline">
+                        <label class="spacing">To Date</label>
+                        <div class="form-group">
+                            <div class="input-group date" id="divDatetimePicker">
+                                @Html.TextBoxFor(m=>m.SelectedDate, new {@id="txtSelectedDate",@class = "form-control"})
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="col-md-12 col-sm-12 col-lg-12">
+                            <div class="col-sm-8 col-md-8 col-lg-8">
+                                <input type="button" value="Get Availability" id="btnGetAvailability" class="btn-custom btn btn-primary" title="Get Availability" style="margin-top:20px;" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @*            <div class="row">
+        <div class="col-md-12 col-sm-12 col-lg-12">
+        <div class="col-sm-6 col-md-6 col-lg-6">
+        <div class="col-md-12 col-sm-12 col-lg-12">
+        <label class="control-label col-sm-4 col-md-4 col-lg-4">Office Location</label>
+        <div class="col-sm-8 col-md-8 col-lg-8">
+        @Html.DropDownList("SelectOfficeBranch", new SelectList(Model.OfficeLocations, "Value", "Text"), "--Select--", new { @class = "form-control" })
+        </div>
+        </div>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6">
+        <div class="col-md-12 col-sm-12 col-lg-12">
+        <label class="control-label col-sm-4 col-md-4 col-lg-4">Date</label>
+        <div class="col-sm-8 col-md-8 col-lg-8">
+        @Html.DropDownList("SelectOfficeBranch", new SelectList(Model.OfficeLocations, "Value", "Text"), "--Select--", new { @class = "form-control" })
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>*@
+            <br />
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-lg-12">
+                    <label class="control-label col-sm-4 col-md-4 col-lg-4" style="font-size: medium;font-weight: bold;margin-left:20px">Seat Availability</label>
+                </div>
+            </div>
+            @********* 4 X 4 ********@
+            @*<div class="row">
+        <div class="col-md-12 col-sm-12 col-lg-12">
+        <div class="form-group col-sm-3 col-md-3 col-lg-3">
+        <fieldset>
+        <legend>Bangalore:</legend>
+        <table id="tblDashboard" class="table">
+        <tbody>
+        @for (int i = 0; i < 4; i++)
+        {
+        <tr>
+        @for (int j = 0; j < 4; j++)
+        {
+        SeatAllocation++;
+        if (SeatAllocation <= 10)
+        {
+        <td title="Booked" style="text-align:center; margin-left:10px; margin-top:10px;">
+        <img src="~/images/SeatGrey.png" style="margin-left:10px; margin-top:10px;" />
+        </td>
+        }
+        else
+        {
+        <td title="Available, click to book" style="text-align:center;margin-left:10px; margin-top:10px;">
+        <a target="_blank" href="https://forms.office.com/pages/responsepage.aspx?id=FltSlJDczE2CvAcZ4Us3jj6gQRnRatRDmmdjGjMi4DZURUNORTlIMkpBSEIxVEVUUjlXWVA2TjA1Sy4u"><img src="~/images/SeatGeen.png" style="margin-left:10px; margin-top:10px;" /></a>
+        </td>
+        }
+        }
+        </tr>
+        }
+        </tbody>
+        </table>
+        </fieldset>
+        </div>
+        </div>
+        </div>*@
+
+            @********* 6 X 6 ********@
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-lg-12">
+                    <div class="form-group col-sm-4 col-md-4 col-lg-4">
+                        <fieldset>
+                            <legend>Bangalore:</legend>
+                            <table id="tblDashboard" class="table">
+                                <tbody>
+                                    @for (int i = 0; i < 4; i++)
+                                    {
+                                        <tr>
+                                            @for (int j = 0; j < 4; j++)
+                                            {
+                                                SeatAllocation++;
+                                                if (SeatAllocation <= 10)
+                                                {
+                                                    <td title="Booked" style="text-align:center;">
+                                                        <img src="~/images/SeatGrey.png" />
+                                                    </td>
+                                                }
+                                                else
+                                                {
+                                                    <td title="Available, click to book" style="text-align:center;">
+                                                        <a target="_blank" href="https://forms.office.com/pages/responsepage.aspx?id=FltSlJDczE2CvAcZ4Us3jj6gQRnRatRDmmdjGjMi4DZURUNORTlIMkpBSEIxVEVUUjlXWVA2TjA1Sy4u"><img src="~/images/SeatGeen.png" /></a>
+                                                    </td>
+                                                }
+                                            }
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<script>
+    $('#divDatetimePicker').datetimepicker({
+        format: 'MM/DD/YYYY'
+    });
+    $('#datetimePickerTo').datetimepicker({
+        format: 'MM/DD/YYYY'
+    });
+    $(document).ready(function() {
+        $("#lblIdentity").text('@Model.UserLogged');
+    });
+</script>
