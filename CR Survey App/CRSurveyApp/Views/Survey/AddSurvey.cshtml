@@ -1,0 +1,750 @@
+﻿@using CRSurveyApp.Models
+@model CRSurveyApp.Models.AddSurveyModel
+@{
+    ViewData["Title"] = "Add Survey";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+
+    var SectionCount = 0;
+    if (@Model.Sections != null)
+    {
+        SectionCount = @Model.Sections.Where(x => x.IsDeleted == false).Count();
+    }
+}
+
+<style>
+    .subtitle {
+        text-align: center !important;
+        font-size: large;
+        color: #0078D4;
+    }
+
+    .que-section {
+        background: #F6F5F5;
+        padding: 20px !important;
+        border-radius: 4px !important;
+    }
+
+    .spanAddOption:hover {
+        text-decoration: underline;
+    }
+
+    .form_error {
+        border-color: red;
+        border: 1px solid red !important;
+    }
+
+    /*#divQue-edit img {
+                                                                        widt    h: 18px;
+                                                                        heig    ht: 18px;
+                                                                    }
+                                                                        #div    Sec-edit img {
+                                                                        widt    h: 18px;
+                                                                        heig    ht: 18px;
+                                                                    }*/
+</style>
+
+<div id="popupModal" style="width: 1200px;
+        height: 900px;
+        display: none;
+        padding: 15px;">
+</div>
+
+
+
+@using (Html.BeginForm("AddSurvey", "Survey", FormMethod.Post, new { id = "formAddSurvey" }))
+{
+    @Html.HiddenFor(m=>m.Id,new { id = "hdnSurveyId" })
+    //@Html.HiddenFor(m=>m.ActionType,new { id = "hdnActionType" })
+    <div id="divSurveybody" class="container">
+        <div class="row survey-title">
+            <label id="survey-Details">Survey Details</label>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-6 col-lg-6">
+                <div class="form-group">
+                    <label>Survey Name</label>
+                    <span class="required">*</span>
+                    @Html.TextBoxFor(m=>m.Name, new { @class = "form-control", id = "txtSurveyName" })
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6">
+                <div class="form-group">
+                    <label>Survey Type</label>
+                    <span class="required">*</span>
+                    @Html.DropDownListFor(m=>m.SelectedSurveyType,new SelectList(Model.SurveyTypes,"Id","Type"),"Select Survey Type", new { @class = "form-control", id = "drpSurveyType" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-lg-12">
+                <div class="form-group">
+                    <label>Description</label>
+                    <span class="required">*</span>
+                    @Html.TextAreaFor(m=>m.Description, new { @class = "form-control", id = "txtSurveyDescription" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-6 col-lg-6">
+                <div class="form-group">
+                    <label>Start Date</label>
+                    <div class="form-group" style="display:flex;">
+                        @Html.TextBoxFor(m=>m.StartDate, new { @class = "form-control", id = "txtSurveyStDt" })
+                        <img src="~/images/CSAT-Application-icons/calendar-icon.svg" style="margin-left:5px;">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6">
+                <div class="form-group">
+                    <label>End Date</label>
+                    <div class="form-group" style="display:flex;">
+                        @Html.TextBoxFor(m=>m.EndDate, new { @class = "form-control", id = "txtSurveyEndDt" })
+                        <img src="~/images/CSAT-Application-icons/calendar-icon.svg" style="margin-left:5px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-6 col-lg-6">
+                <div class="form-group">
+                    @Html.CheckBoxFor(m=>m.IsActive, new {@id = "chkActive" })
+                    <label> Active</label>
+                </div>
+            </div>
+        </div>
+        <div class="row survey-title">
+            <label>Questions</label>
+        </div>
+        @if (@Model.Sections != null)
+        {
+            @for (int s = 0; s < Model.Sections.Count(); s++)
+            {
+                @if (!@Model.Sections[s].IsDeleted)
+                {
+                    <div class="divSection">
+                        @if (Model.Sections.Where(x => x.IsDeleted == false).Count() > 1)
+                        {
+                            @if (s - Model.Sections.Where(x => x.IsDeleted == true).Count() < 0)
+                            {
+                                <div class="page-section" data-SectionId=@Model.Sections[s].SectionId>
+                                    <div class="row">
+                                        <div class="col-md-10 col-sm-10 col-lg-10 que-name">
+                                        </div>
+                                        <div class="col-md-2 col-sm-2 col-lg-2 que-name">
+                                            <h4><span>Section 1 of @Model.Sections.Where(x => x.IsDeleted == false).Count()</span></h4>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12 col-lg-12 que-edit" id="divSec-edit">
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="page-section" data-SectionId=@Model.Sections[s].SectionId>
+                                    <div class="row">
+                                        <div class="col-md-10 col-sm-10 col-lg-10 que-name">
+                                            <h4><span>@Model.Sections[s].SectionName</span></h4>
+                                        </div>
+                                        <div class="col-md-2 col-sm-2 col-lg-2 que-name">
+                                            <h4><span>Section @(s+1-(Model.Sections.Where(x=>x.IsDeleted == true).Count())) of @Model.Sections.Where(x => x.IsDeleted == false).Count()</span></h4>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12 col-lg-12 que-name">
+                                            <h4><span>@Model.Sections[s].SectionDescription</span></h4>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12 col-lg-12 que-edit" id="divSec-edit">
+                                            <img src="~/images/add-button.png" class="AddQuestion" title="Add question" />
+                                            <img src="~/images/edit-icon.svg" class="EditSection" title="Edit Section"  />
+                                            <img src="~/images/delete-icon.svg" class="DeleteSection" title="Delete Section" />
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                            <br />
+                        }
+                        @if (@Model.Sections[s].Questions != null)
+                        {
+                            @for (int q = 0; q < Model.Sections[s].Questions.Count(); q++)
+                            {
+                                @if (!@Model.Sections[s].Questions[q].IsDeleted)
+                                {
+                                    <div class="que-section" data-id=@Model.Sections[s].Questions[q].QuestionId data-queDisplayOrder=@Model.Sections[s].Questions[q].DisplayOrder data-SectionId=@Model.Sections[s].SectionId>
+                                        <div class="row">
+                                            <div class="col-md-10 col-sm-10 col-lg-10 que-name">
+                                                <h4><span>@(q+1). @Model.Sections[s].Questions[q].QuestionName</span></h4>
+                                            </div>
+                                        </div>
+                                        @if (Model.Sections[s].Questions[q].Options != null)
+                                        {
+                                            @for (var i = 0; i < Model.Sections[s].Questions.Where(x => x.QuestionId == Model.Sections[s].Questions[q].QuestionId).FirstOrDefault().Options.Count(); i++)
+                                            {
+                                                <br />
+                                                <div class="row">
+                                                    <div class="col-md-1 col-sm-1 col-lg-1" style="width:1%">
+                                                        @if (Model.Sections[s].Questions[q].SelectedQuestionTypes == 0 || Model.Sections[s].Questions[q].SelectedQuestionTypes == 1)
+                                                        {
+                                                            <img src="~/images/circle.svg" />
+                                                        }
+                                                        @if (Model.Sections[s].Questions[q].SelectedQuestionTypes == 2)
+                                                        {
+                                                            <img src="~/images/square.svg" />
+                                                        }
+                                                        @if (Model.Sections[s].Questions[q].SelectedQuestionTypes == 3)
+                                                        {
+                                                            <span>@i</span>
+                                                            <span>. </span>
+                                                        }
+                                                    </div>
+                                                    <div class="col-md-8 col-sm-8 col-lg-8 que-ans">
+                                                        <h5><span>@Model.Sections[s].Questions[q].Options[i]</span></h5>
+                                                    </div>
+                                                    <br />
+                                                </div>
+                                            }
+                                        }
+                                        @if (Model.Sections[s].Questions[q].SelectedQuestionTypes == 4)
+                                        {
+                                            <div class="row">
+                                                <div class="col-md-4 col-sm-4 col-lg-4">
+                                                    <input class="form-control" id="txtOption" name="Options[0].Name" type="text" placeholder="Short answer text" readonly="readonly" />
+                                                </div>
+                                            </div>
+                                        }
+                                        @if (Model.Sections[s].Questions[q].SelectedQuestionTypes == 5)
+                                        {
+                                            <div class="row">
+                                                <div class="col-md-8 col-sm-8 col-lg-8">
+                                                    @*<input class="form-control" id="txtOption" name="Options[0].Name" type="text" placeholder="Short answer text" readonly="readonly" />*@
+                                                    <textarea class="form-control" id="txtOption" placeholder="Long answer text" readonly="readonly" rows="4"></textarea>
+                                                </div>
+                                            </div>
+                                        }
+                                        @if (Model.Sections[s].Questions[q].SelectedQuestionTypes == 6)
+                                        {
+                                            <br />
+                                            @if (Model.Sections[s].Questions[q].Scale != null)
+                                            {
+                                                <div class="row">
+                                                    <div class="col-md-2 col-sm-2 col-lg-2">
+                                                    </div>
+                                                    @for (int i = Model.Sections[s].Questions[q].Scale.MinScale; i <= Model.Sections[s].Questions[q].Scale.MaxScale; i++)
+                                                    {
+                                                        <div class="col-md-1 col-sm-1 col-lg-1">
+                                                            <span>@i</span>
+                                                        </div>
+                                                    }
+                                                    <div class="col-md-2 col-sm-2 col-lg-2">
+                                                    </div>
+                                                </div>
+                                                <br />
+                                                <div class="row">
+                                                    <div class="col-md-2 col-sm-2 col-lg-2">
+                                                        <span>@Model.Sections[s].Questions[q].Scale.MinLabel</span>
+                                                    </div>
+                                                    @for (int i = Model.Sections[s].Questions[q].Scale.MinScale; i <= Model.Sections[s].Questions[q].Scale.MaxScale; i++)
+                                                    {
+                                                        <div class="col-md-1 col-sm-1 col-lg-1">
+                                                            <img src="~/images/circle.svg" />
+                                                        </div>
+                                                    }
+                                                    <div class="col-md-2 col-sm-2 col-lg-2">
+                                                        <span>@Model.Sections[s].Questions[q].Scale.MaxLabel</span>
+                                                    </div>
+                                                </div>
+                                            }
+
+                                        }
+                                        <hr />
+                                        <div class="row">
+                                            <div class="col-md-12 col-sm-12 col-lg-12 que-edit" id="divQue-edit">
+                                                <img src="~/images/edit-icon.svg" class="EditQuestion" />
+                                                <img src="~/images/delete-icon.svg" class="DeleteQuestion" />
+                                                @* <img src="~/images/section.png" class="AddSection" />*@
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br />
+                                }
+                            }
+                        }
+                    </div>
+                }
+            }
+        }
+        <br />
+        <div class="row">
+            <div class="col-md-2 col-sm-2 col-lg-2" style="display:flex;">
+                <input type="button" name="Add New Section" value="Add New Section" id="btnAddNewSection" class="btn-custom btn btn-primary" title="Add new section to the survey" />
+                &nbsp; <span style="padding-top:3%;">
+                    <img title="Add new section to the survey" src="~/images/CSAT-Application-icons/exclamation-mark-icon.svg" class="infoIcon">
+                </span>
+            </div>
+            <div class="col-md-2 col-sm-2 col-lg-2" style="display:flex;" id="divAddDefaultQue">
+                <input type="button" name="Add New Question" value="Add New Question" id="btnAddNewQuestion" class="btn-custom btn btn-primary" title="Add new question to the survey" />
+                &nbsp; <span style="padding-top:3%;">
+                    <img title="Add new question to the survey" src="~/images/CSAT-Application-icons/exclamation-mark-icon.svg" class="infoIcon">
+                </span>
+            </div>
+
+        </div>
+        <br />
+        <div class="row">
+
+            <div class="col-md-12 col-sm-12 col-lg-12">
+                <div style="overflow:auto; text-align:center;">
+                    <input type="button" id="btnCancel" class="btn-custom btn btn-primary" style="background:White;color:Black; width:150px" value="Cancel" />&nbsp;&nbsp;
+                    <input type="button" id="btnSaveSurvey" class="btn-custom btn btn-primary" style="background:#FF6801;color:White; width:150px" value="Save" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+<script type="text/javascript">
+    //Function to set date  picker format
+    $(function() {
+        $("#txtSurveyStDt").datepicker();
+    });
+    //Function to set date  picker format
+    $(function() {
+        $("#txtSurveyEndDt").datepicker();
+        //$("#txtSurveyEndDt").datepicker({
+        //    showOn: "button",
+        //    buttonImage: "~/images/CSAT-Application-icons/calendar-icon.svg",
+        //    buttonImageOnly: true
+        //}).next(".ui-datepicker-trigger").css("display", "flex");
+    });
+
+    $(document).ready(function() {
+
+        // Hide add button on header
+        $('#main-menu a').removeClass("active");
+        $('#surveys-menu').addClass("active");
+        $("#btnAdd").hide();
+
+        $("#popupModal").dialog({
+            autoOpen: false,
+            modal: true,
+            minWidth: 1000,
+            dialogClass: 'dialogue-border',
+            draggable: true,
+            resizable: false
+        });
+
+        // Hide Add button div when there are more than 1 sections
+        if (@SectionCount > 1) {
+            $("#divAddDefaultQue").hide();
+        }
+        else {
+            $("#divAddDefaultQue").show();
+        }
+
+        // Save survey
+        $("#btnSaveSurvey").click(function() {
+            if (Validate()) {
+                $("#hdnActionType").val("1");
+                $("#formAddSurvey").submit();
+            }
+        });
+
+        $("#btnCancel").click(function() {
+            window.location.href = "@Url.Action("Surveys", "Survey")";
+        });
+
+        /// Add question
+        $("#btnAddNewSection").click(function() {
+            AddNewSection(0, 0, 0);
+        });
+
+        // Add section
+        $(".AddSection").off('click').on('click', function(e) {
+            var queId = $(this).parents('div').parents('div').parents('div').attr('data-id');
+            var queOrder = $(this).parents('div').parents('div').parents('div').attr('data-queDisplayOrder');
+            var sectionId = $(this).parents('div').parents('div').parents('div').attr('data-SectionId');
+            AddNewSection(queId, queOrder, sectionId);
+        });
+
+        //Edit Section
+        $(".EditSection").off('click').on('click', function(e) {
+            var sectionId = $(this).parents('div').parents('div').parents('div').attr('data-SectionId');
+
+            $.ajax({
+                url: 'EditSectionModelPopup',
+                type: 'GET',
+                async: false,
+                data: { sectionId: sectionId },
+                success: function(data) {
+                    $("#popupModal").html(data);
+                    $("#popupModal").dialog('open');
+
+                    SectionModelPopupEvents();
+                },
+                error: function(error) {
+                    currentEle.prop("disabled", false);
+                }
+            });
+        });
+
+        // Delete section
+        $(".DeleteSection").off('click').on('click', function(e) {
+            if (confirm("Deleting sections will also delete associated questions,  are you sure to continue?")) {
+                var sectionId = $(this).parents('div').parents('div').parents('div').attr('data-SectionId');
+
+                $.ajax({
+                    url: 'DeleteSection',
+                    type: 'GET',
+                    async: false,
+                    data: { SectionId: sectionId },
+                    success: function(data) {
+
+                    },
+                    error: function(error) {
+                        currentEle.prop("disabled", false);
+                    }
+                });
+
+                //divSection
+                //$(this).parent().closest('.divSection').empty();;
+                window.location.href = "@Url.Action("AddSurvey", "Survey")";
+            }
+        });
+
+        /// Add question
+        $("#btnAddNewQuestion").click(function() {
+            AddQuestionToSection(0);
+        });
+
+
+        //Edit Question
+        $(".EditQuestion").off('click').on('click', function(e) {
+            var queId = $(this).parents('div').parents('div').parents('div').attr('data-id');
+            var queOrder = $(this).parents('div').parents('div').parents('div').attr('data-id');
+
+            $.ajax({
+                url: 'EditQuestionModelPopup',
+                type: 'GET',
+                async: false,
+                data: { questionId: queId },
+                success: function(data) {
+                    $("#popupModal").html(data);
+                    $("#popupModal").dialog('open');
+
+                    QuestionModelPopupEvents();
+                },
+                error: function(error) {
+                    currentEle.prop("disabled", false);
+                }
+            });
+        });
+
+        // Delete question
+        $(".DeleteQuestion").off('click').on('click', function(e) {
+            var sectionId = $(this).parents('div').parents('div').parents('div').attr('data-SectionId');
+            var id = $(this).parents('div').parents('div').parents('div').attr('data-id');
+
+            $.ajax({
+                url: 'DeleteQuestion',
+                type: 'GET',
+                async: false,
+                data: { SectionId: sectionId, QuestionId: id },
+                success: function(data) {
+
+                },
+                error: function(error) {
+                    currentEle.prop("disabled", false);
+                }
+            });
+
+            $(this).parent().parent().parent().removeClass("que-section");
+            $(this).parent().parent().parent().empty();
+        });
+
+        $(".AddQuestion").off('click').on('click', function(e) {
+            var sectionId = $(this).parents('div').parents('div').parents('div').attr('data-SectionId');
+            AddQuestionToSection(sectionId);
+        });
+
+        //remove validation error on focus
+        $("#txtSurveyName").focus(function() {
+            $('#txtSurveyName').removeClass("form_error");
+        });
+        $("#txtSurveyDescription").focus(function() {
+            $('#txtSurveyDescription').removeClass("form_error");
+        });
+        $("#drpSurveyType").focus(function() {
+            $('#drpSurveyType').removeClass("form_error");
+        });
+    });
+
+    //Validation
+    function Validate() {
+        var isValid = true;
+
+        //validate survey name
+        if ($("#txtSurveyName").val().length == 0) {
+            $("#txtSurveyName").addClass("form_error");
+            isValid = false;
+        }
+
+        // validate survey type
+        if ($("#drpSurveyType option:selected").val() == 0) {
+            $("#drpSurveyType").addClass("form_error");
+            isValid = false;
+        }
+
+        //validate survey description
+        if ($("#txtSurveyDescription").val().length == 0) {
+            $("#txtSurveyDescription").addClass("form_error");
+            isValid = false;
+        }
+
+        return isValid;
+    }
+
+
+    function AddQuestionToSection(sectionId) {
+        if (Validate()) {
+            var objSurvey = {
+                Id: $("#hdnSurveyId").val(),
+                Name: $("#txtSurveyName").val(),
+                Description: $("#txtSurveyDescription").val()
+            };
+            AddNewQuestionDialog($("#hdnSurveyId").val(), $("#txtSurveyName").val(), $("#drpSurveyType option:selected").val(), $("#txtSurveyDescription").val(), $("#txtSurveyStDt").val(), $("#txtSurveyEndDt").val(), $("#chkActive").val(), sectionId);
+        }
+    }
+
+    /// Open Model popup to add new country
+    function AddNewQuestionDialog(id, name, surveyType, description, stDate, endDate, isActive, sectionId) {
+        $.ajax({
+            url: 'AddQuestionModelPopup',
+            type: 'GET',
+            async: false,
+            data: { id: id, name: name, surveyType: surveyType, description: description, stDate: stDate, endDate: endDate, isActive: isActive, sectionId: sectionId },
+            success: function(data) {
+                $("#popupModal").html(data);
+                $("#popupModal").dialog('open');
+
+                QuestionModelPopupEvents();
+            },
+            error: function(error) {
+                currentEle.prop("disabled", false);
+            }
+        });
+    }
+
+    function AddNewSection(queId, queOrder, sectionId) {
+        if (Validate()) {
+            var id = $("#hdnSurveyId").val();
+            var name = $("#txtSurveyName").val();
+            var surveyType = $("#drpSurveyType option:selected").val();
+            var description = $("#txtSurveyDescription").val();
+            var stDate = $("#txtSurveyStDt").val();
+            var endDate = $("#txtSurveyEndDt").val();
+            var isActive = $("#chkActive").val();
+
+            $.ajax({
+                url: 'AddSection',
+                type: 'GET',
+                async: false,
+                data: { QuestionId: queId, QuestionOrder: queOrder, SectionId: sectionId, id: id, name: name, surveyType: surveyType, description: description, stDate: stDate, endDate: endDate, isActive: isActive },
+                success: function(data) {
+                    $("#popupModal").html(data);
+                    $("#popupModal").dialog('open');
+                    SectionModelPopupEvents();
+                },
+                error: function(error) {
+                    currentEle.prop("disabled", false);
+                }
+            });
+        }
+    }
+
+    //document.addEventListener("DOMContentLoaded", function(event) {
+    //    window.scrollTo(0, document.body.scrollHeight);
+    //});
+
+    //On quetion div click set SelectedQuestionID
+    $(".que-section").click(function() {
+        $("#hdnSelectedQuestionID").val($(this).data("id"));
+    });
+
+    // Add option click event
+    $(".txtOption").click(function() {
+        $("#hdnActionType").val("6");
+        $("#formAddSurvey").submit();
+    });
+
+    // Question type change event
+    $(".drpQType").change(function() {
+        $("#hdnActionType").val("5");
+    });
+
+    /************** QuestionModelPopupEvents Start ********************/
+    function QuestionModelPopupEvents() {
+
+        // Question type dropdown change event
+        $(".drpQType").change(function() {
+            switch ($("#drpQuestionType option:selected").text()) {
+                case "Multiple choice":
+                    $('#divOptionSection').empty();
+                    var optionCount = $(".txtOption").length + 1;
+                    $("#divOptionSection").append('<br /><div id="divOptions"><div class="row"><div class="col-md-1 col-sm-1 col-lg-1" style="width:1%"><img src="/images/circle.svg" /></div> <div class="col-md-8 col-sm-8 col-lg-8"><input class="form-control txtOption" id="txtOption" name="Options[0].Name" type="text" value="Option ' + optionCount + '"></div><br /><br /></div></div><br/>');
+                    $("#divOptionSection").append('<br /><div class="row"><div class="col-md-1 col-sm-1 col-lg-1" style="width:1%"><img src="/images/circle.svg" /></div><div class="col-md-3 col-sm-3 col-lg-3"><span id="spAddOption" class="spanAddOption">Add option</span> or <span id="spAddOther" class="txtOtherOption">Add "Other"</span></div></div><br/>');
+                    break;
+                case "Checkboxes":
+                    $('#divOptionSection').empty();
+                    var optionCount = $(".txtOption").length + 1;
+                    $("#divOptionSection").append('<br /><div id="divOptions"><div class="row"><div class="col-md-1 col-sm-1 col-lg-1" style="width:1%"><img src="/images/square.svg" /></div> <div class="col-md-8 col-sm-8 col-lg-8"><input class="form-control txtOption" id="txtOption" name="Options[0].Name" type="text" value="Option ' + optionCount + '"></div><br /><br /></div></div><br/>');
+                    $("#divOptionSection").append('<br /><div class="row"><div class="col-md-1 col-sm-1 col-lg-1" style="width:1%"><img src="/images/square.svg" /></div><div class="col-md-3 col-sm-3 col-lg-3"><span id="spAddOption" class="spanAddOption">Add option</span> or <span id="spAddOther" class="txtOtherOption">Add "Other"</span></div></div><br/>');
+                    break;
+                case "Dropdown":
+                    $('#divOptionSection').empty();
+                    var optionCount = $(".txtOption").length + 1;
+                    $("#divOptionSection").append('<br /><div id="divOptions"><div class="row"><div class="col-md-1 col-sm-1 col-lg-1" style="width:1%"><span class="drpOptionValue"> 1.  </span></div> <div class="col-md-8 col-sm-8 col-lg-8"><input class="form-control txtOption" id="txtOption" name="Options[0].Name" type="text" value="Option ' + optionCount + '"></div><br /><br /></div></div><br/>');
+                    $("#divOptionSection").append('<br /><div class="row"><div class="col-md-3 col-sm-3 col-lg-3"><span id="spAddOption" class="spanAddOption">Add option</span> or <span id="spAddOther" class="txtOtherOption">Add "Other"</span></div></div><br/>');
+                    break;
+                case "Short answer":
+                    $('#divOptionSection').empty();
+                    $("#divOptionSection").append('<br /><div id="divOptions"><div class="row"><div class="col-md-8 col-sm-8 col-lg-8"><input class="form-control txtOption" id="txtOption" name="Options[0].Name" type="text" placeholder="Short answer text" readonly="readonly"/></div></div></div><br/>');
+                    break;
+                case "Paragraph":
+                    $('#divOptionSection').empty();
+                    $("#divOptionSection").append('<br /><div id="divOptions"><div class="row"><div class="col-md-8 col-sm-8 col-lg-8"><input class="form-control txtOption" id="txtOption" name="Options[0].Name" type="text" placeholder="Long answer text" readonly="readonly"/></div></div></div><br/>');
+                    break;
+                case "Linear Scale":
+                    $('#divOptionSection').empty();
+                    $("#divOptionSection").append('<br /><div class="row"><div class="col-md-2 col-sm-2 col-lg-2"><select class="form-control" data-val="true" data-val-required="The MinScale field is required." id="drpScaleMinValue" name="Scale.MinScale"><option value="">1</option><option>0</option><option>1</option></select></div>To<div class="col-md-2 col-sm-2 col-lg-2"><select class="form-control" data-val="true" data-val-required="The MaxScale field is required." id="drpScaleMaxValue" name="Scale.MaxScale"><option value="">5</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></div></div><br /><div class="row"><div class="col-md-2 col-sm-2 col-lg-2"><label>Minimum value label</label></div><div class="col-md-4 col-sm-4 col-lg-4"><input class="form-control" id="txtMinLabel" name="Scale.MinLabel" placeholder="Minimum value label (optional)" type="text" value=""></div></div><br><div class="row"><div class="col-md-2 col-sm-2 col-lg-2"><label>Maximum value label</label></div><div class="col-md-4 col-sm-4 col-lg-4"><input class="form-control" id="txtMaxLabel" name="Scale.MaxLabel" placeholder="Maximum value label (optional)" type="text" value=""></div></div><br/>');
+                    break;
+                default: break;
+            }
+        });
+
+        // Add new options
+        $("#divOptionSection").on("click", "span.spanAddOption", function() {
+            var optionCount = $(".txtOption").length + 1;
+            switch ($("#drpQuestionType option:selected").text()) {
+                case "Multiple choice":
+                    $("#divOptions").append('<br/><div class="row"><br /><br /><div class="col-md-1 col-sm-1 col-lg-1" style="width:1%"><img src="/images/circle.svg" /></div> <div class="col-md-8 col-sm-8 col-lg-8"><input class="form-control txtOption" id="txtOption" name="Options[0].Name" type="text" value="Option ' + optionCount + '"></div><div class="col-md-1 col-sm-1 col-lg-1" style="width:1%"><img class="optionDelete" src="/images/delete-icon.svg"></div></div>');
+                    break;
+                case "Checkboxes":
+                    $("#divOptions").append('<br/><div class="row"><br /><br /><div class="col-md-1 col-sm-1 col-lg-1" style="width:1%"><img src="/images/square.svg" /></div> <div class="col-md-8 col-sm-8 col-lg-8"><input class="form-control txtOption" id="txtOption" name="Options[0].Name" type="text" value="Option ' + optionCount + '"></div><div class="col-md-1 col-sm-1 col-lg-1" style="width:1%"><img class="optionDelete" src="/images/delete-icon.svg"></div></div>');
+                    break;
+                case "Dropdown":
+                    $("#divOptions").append('<br/><div class="row"><br /><br /><div class="col-md-1 col-sm-1 col-lg-1" style="width:1%"><span class="drpOptionValue"> ' + optionCount + '.   </span></div> <div class="col-md-8 col-sm-8 col-lg-8"><input class="form-control txtOption" id="txtOption" name="Options[0].Name" type="text" value="Option ' + optionCount + '"></div><div class="col-md-1 col-sm-1 col-lg-1" style="width:1%"><img class="optionDelete" src="/images/delete-icon.svg"></div></div>');
+                    break;
+                default: break;
+            }
+        });
+
+        //option delete
+        $("#divOptionSection").on("click", "img.optionDelete", function() {
+            $(this).parent().parent().empty();
+        });
+
+        // Save question
+        $("#btnSaveQuestion").click(function(e) {
+            //alert($("#hdnSectionIDQuePopup").val());
+            //alert($("#hdnQuestionID").val());
+            //Id: $(".que-section").data("id"),
+
+            if ($("#txtQuestion").val().length == 0) {
+                $('#txtQuestion').addClass("redBorder");
+            }
+            else {
+                var objScale = {
+                    MinScale: $("#drpScaleMinValue option:selected").text(),
+                    MaxScale: $("#drpScaleMaxValue option:selected").text(),
+                    MinLabel: $("#txtMinLabel").val(),
+                    MaxLabel: $("#txtMaxLabel").val()
+                };
+
+                var objQuestion = {
+                    QuestionId: $("#hdnQuestionID").val(),
+                    SectionId: $("#hdnSectionIDQuePopup").val(),
+                    DisplayOrder: $("#hdnDisplayOrderQuePopup").val(),
+                    QuestionName: $("#txtQuestion").val(),
+                    SelectedQuestionTypes: $("#drpQuestionType option:selected").val(),
+                    Options: $('.txtOption').map((i, e) => e.value).get(),
+                    AddComments: $('#chkAddComments').is(":checked"),
+                    Scale: objScale
+                };
+
+                $.ajax({
+                    url: 'SaveQuestion',
+                    type: 'POST',
+                    dataType: "json",
+                    data: {
+                        "Question": objQuestion
+                    },
+                    success: function(response) {
+                        CloseActiveDialog();
+                        window.location.href = "@Url.Action("AddSurvey", "Survey")";
+                    },
+                    error: function(error) {
+                        alert("Error");
+                    }
+                });
+            }
+        });
+
+        // Question focus event to remove validation error - red border
+        $("#txtQuestion").focus(function() {
+            $('#txtQuestion').removeClass("redBorder");
+        });
+    }
+    /************** QuestionModelPopupEvents End ********************/
+
+    function SectionModelPopupEvents() {
+        // Save section
+        $("#btnSaveSection").click(function(e) {
+
+            //alert($("#hdnQuestionID").val());
+            //Id: $(".que-section").data("id"),
+
+            if ($("#txtSectionName").val().length == 0) {
+                $('#txtSectionName').addClass("redBorder");
+            }
+            else {
+                var objSection = {
+                    SectionId: $("#hdnSectionIdPopUp").val(),
+                    OldSectionId: $("#hdnOldSectionIdPopUp").val(),
+                    StartQueOrder: $("#hdnStartQueOrder").val(),
+                    StartQueId: $("#hdnStartQueId").val(),
+                    SectionName: $("#txtSectionName").val(),
+                    SectionDescription: $("#txtSectionDescription").val(),
+                    IsNew: $("#hdnIsNewSection").val()
+                };
+                $.ajax({
+                    url: 'SaveSection',
+                    type: 'POST',
+                    dataType: "json",
+                    data: {
+                        "Section": objSection
+                    },
+                    success: function(response) {
+                        CloseActiveDialog();
+                        window.location.href = "@Url.Action("AddSurvey", "Survey")";
+                    },
+                    error: function(error) {
+                        alert("Error");
+                    }
+                });
+            }
+        });
+    }
+
+    // Close model popup
+    function CloseActiveDialog() {
+        $(".ui-dialog:visible .ui-dialog-content").dialog('close');
+    }
+
+</script>

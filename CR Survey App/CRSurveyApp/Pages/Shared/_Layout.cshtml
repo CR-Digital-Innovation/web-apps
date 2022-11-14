@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+CR-CSAT Application</title>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/style.css">
+    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/CRSurveyApp.styles.css" asp-append-version="true" />*@
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    @* JQuery Start *@
+    @* <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />*@
+
+    <!-- Include Bootstrap CDN -->
+    @* <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+    rel="stylesheet">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
+    </script>*@
+    @*JQuery End*@
+
+    <style>
+        .HeaderUL {
+            display: inline-flex;
+            flex-direction: row;
+        }
+
+            .HeaderUL li {
+                margin-left: 50px;
+                color: white;
+                font-size: large;
+            }
+
+                .HeaderUL li a {
+                    color: white;
+                    font-size: large;
+                }
+    </style>
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+
+            <a class="navbar-brand" href="#">
+                <img src="~/images/critical_river_final.svg" alt="" width="205" height="30">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+@*            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto"></ul>
+
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <!--  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+                    <div class="profile-img">
+                        <img src="~/images/avtar.png" alt="john">
+                    </div>
+                    <div class="username" style="display:block;">
+                        <!--<span><b><partial name="_LoginPartial" /></b></span>-->
+                        <span><b>John Deo</b></span><br />
+                        <span>Associate Director</span>
+                    </div>
+
+                    <div class="dropdown">
+                        <button class="btn btn-default" type="button" data-toggle="dropdown">
+                            <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Sign Out</a></li>
+
+                        </ul>
+                    </div>
+                </form>
+            </div>*@
+             <span><b><partial name="_LoginPartial" /></b></span>
+        </div>
+    </nav>
+    <header>
+        <div class="header">
+            <div class="container-fluid" style="display:inline-flex;align-items:baseline;">
+                <nav aria-label="breadcrumb">
+                    <div class="menu" id="main-menu">
+                        <a class="nav-link" id="projects-menu" asp-area="" asp-controller="Project" asp-action="Projects">Projects</a>
+                        <a class="nav-link" id="surveys-menu"  asp-area="" asp-controller="Survey" asp-action="Surveys">Surveys</a>
+                        <a class="nav-link" id="role-menu"  asp-area="" asp-controller="Role" asp-action="Roles">Roles</a>
+                        <a class="nav-link" id="roleAssign-menu"  asp-area="" asp-controller="RoleAssignment" asp-action="RoleAssignments">Role Assignment</a>
+                        <a class="nav-link" id="result-menu"  asp-area="" asp-controller="Result" asp-action="Results">Results</a>
+                    </div>
+                </nav>
+                <div style="margin-left:auto;">
+                    <input type="button" class="submitBtn" name="btnAdd" id="btnAdd" value="Add" />
+                </div>
+
+            </div>
+
+        </div>
+    </header>
+    <div class="container bg-body" style="padding-bottom: 100px !important;">
+        <main role="main" class="main">
+            @RenderBody()
+        </main>
+    </div>
+
+   <footer class="fixed-bottom page-footer font-small blue">
+        <div class="container-fluid text-center text-md-left">
+            <div class="row footer-copyright text-center footerCl">
+                <div class="col-md-3 col-sm-12">&copy;&nbsp;Copyright @DateTime.Now.Year - CriticalRiver Survey App</div>
+
+                <div class="col-md-3"></div>
+                <div class="col-md-3"></div>
+
+                <div class="col-md-3 col-sm-3 footer-right">
+                    Contact us @@ CoE-DevSecOps@criticalriver.com
+                   @*<a asp-area="" asp-page="/Privacy">Privacy</a>&nbsp;|<a asp-area="" asp-page="/Terms">&nbsp;Terms</a>&nbsp;|&nbsp;<a asp-area="" asp-page="/Sitemap">Sitemap</a>&nbsp;*@ 
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+            $('#main-menu a').click(function() {
+                $('#main-menu a').removeClass("active");
+                $(this).addClass("active");
+            });
+
+        });
+
+    </script>
+</body>
+</html>

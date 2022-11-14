@@ -1,0 +1,64 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model CRSurveyApp.Models.SendSurveyModel
+
+@{
+}
+
+<div class="row"></div>
+<div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+        <div class="row survey-title">
+            <label>Send Survey</label>
+        </div>
+        @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "frmSendSurvey" }))
+        {
+            <div class="container que-section">
+                <div class="row">
+                    @Html.HiddenFor(m=>m.ProjectId,new { id = "hdnProjectIdSendSurvey" })
+                    @Html.HiddenFor(m=>m.UniqueID,new { id = "hdnUniqueID" })
+                </div>
+                <div class="row">
+                     <div class="col-sm-4 col-md-4 col-lg-4">
+                        <div class="form-group">
+                            <label>Contact</label>
+                            @Html.DropDownListFor(m=>m.SelectedContacts, new SelectList(Model.CustomerContacts, "Email", "FullName"), "Select Contact", new { @class = "form-control",@id="drpSendCustContact" })
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-lg-4">
+                        <div class="form-group">
+                            <label>Survey</label>
+                            @Html.DropDownListFor(m=>m.SelectedSurvey, new SelectList(Model.Surveys, "Id", "Name"), "Select Survey", new { @class = "form-control",@id="drpSendSurvey" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-10 col-sm-10 col-lg-10">
+                        <div class="form-group">
+                            <label>Subject</label>
+                            @Html.TextBoxFor(m=>m.Subject, new { @class = "form-control", id = "txtSubject" })
+                        </div>
+                    </div>
+                    <div class="col-md-10 col-sm-10 col-lg-10">
+                        <div class="form-group">
+                            <label>Body</label>
+                            @Html.TextAreaFor(m=>m.Body, new { @class = "form-control", id = "txtBody" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        
+        <div class="row popup-top-border">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="pull-right col-sm-7 col-md-7 col-lg-7">
+                    <input class="btn btn-primary col-md-5 col-md-5 col-lg-5" id="btnSend" type="button" value="Save" style="background:#FF6801;color:White !important; width:150px" /> @*data-id="@Model.Id"*@
+                    <span class="" style="float: left">&nbsp;</span>
+                    <input class="btn btn-primary btnCancelPopup col-md-5 col-md-5 col-lg-5" type="button" value="Cancel" style="background:White;color:Black !important; width:150px" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

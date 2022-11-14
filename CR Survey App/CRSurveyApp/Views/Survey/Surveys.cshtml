@@ -1,0 +1,221 @@
+﻿@model CRSurveyApp.Models.SurveyModel
+@{
+    //ViewData["Title"] = "Home page";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<script src="~/js/jquery-3.3.1.min.js"></script>
+
+<link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<link href="https://cdn.datatables.net/scroller/1.5.1/css/scroller.dataTables.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/scroller/1.5.1/js/dataTables.scroller.min.js"></script>
+
+<link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/1.10.20/css/dataTables.jqueryui.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/scroller/2.0.1/css/scroller.jqueryui.min.css" rel="stylesheet" />
+
+<style>
+    
+    .DeleteSurvey {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+
+    .EditSurvey img, .DeleteSurvey img, .SendSurvey img{
+        width:18px;
+        height:18px;
+    }
+    
+</style>
+
+@using (Html.BeginForm("Surveys", "Survey", FormMethod.Post, new { id = "formSurveys" }))
+{
+    @Html.HiddenFor(m=>m.SurveyId,new { id = "hdnSurveyId" })
+    @Html.HiddenFor(m=>m.surveyOperationType,new { id = "hdnSurveyOperationType" })
+    <div class="container">
+        <div class="row survey-title">
+            <label>Surveys</label>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <!--<label class="control-label">Survey Type</label>-->
+                <div class="form-group">
+                    @Html.DropDownListFor(m=>m.SelectedSurvey, new SelectList(Model.SurveyType, "Id", "Type"), "Survey Type", new { @class = "form-control",@id="drpSurveyTypeHome" } )
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 col-sm-12 col-lg-12 table-data" style="overflow:scroll;margin-bottom:5%;">
+        <table id="tblSurvey" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Actions</th>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Active</th>
+                    <th>Response Count</th>
+                    <th>Created By</th>
+                    <th>Created On</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+}
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        /** Show add button and change text **/
+        $('#main-menu a').removeClass("active");
+        $('#surveys-menu').addClass("active");
+        $("#btnAdd").show();
+        $("#btnAdd").prop('value', 'Add Survey');
+
+        BindDataTable();
+
+        // Add Survey event handler
+        $("#btnAdd").click(function() {
+            $("#hdnSurveyId").val(0);
+            $("#hdnSurveyOperationType").val(1);
+            $("#formSurveys").submit();
+        });
+
+        // Edit Survey event handler
+        $(".EditSurvey").off('click').on('click', function(e) {
+            var id = $(this).parents('td').attr('data-id');
+            $("#hdnSurveyId").val(id);
+            $("#hdnSurveyOperationType").val(2);
+            $("#formSurveys").submit();
+        });
+
+        // Delete Survey event handler
+        $(".DeleteSurvey").off('click').on('click', function(e) {
+            var id = $(this).parents('td').attr('data-id');
+            if (confirm("Are you sure you want to delete survey " + $(this).parents('tr').find('td:nth-child(2)').text() + " ?")) {
+                $.ajax({
+                    url: 'Survey/DeleteSurvey',
+                    type: 'GET',
+                    async: false,
+                    data: { id: id },
+                    success: function(response) {
+                         window.location.href = "@Url.Action("Surveys", "Survey")";
+                    },
+                    error: function(error) {
+                    }
+                });
+            }
+        });
+
+        $("#drpSurveyTypeHome").change(function() {
+            BindDataTable();
+        });
+    });
+
+    // Function to bind role details data table
+    function BindDataTable() {
+
+        var datatbl = $("#tblSurvey").DataTable();
+        datatbl.clear();
+        datatbl.destroy();
+
+        var table = $("#tblSurvey");
+        table.find('tbody tr').empty();
+
+        var surveyParam = {};
+        surveyParam.SurveyType = $("#drpSurveyTypeHome option:selected").val();
+
+    @*Bind Jquery datatable*@
+            $.ajax({
+                url: "Survey/GetFilteredSurveys",
+                type: "POST",
+                data: surveyParam,
+                async: false,
+                success: function(data) {
+                    if (data.data != null && data.data != undefined) {
+                        var tr = '';
+                        $.each(data.data, function(i, e) {
+                            tr += '<tr>'
+                                + '<td data-id="' + data.data[i].id + '" style="text-align:center;">'
+                                + '<span title = "Edit" class="EditSurvey"><img src="/images/CSAT-Application-icons/edit-icon.svg"></span>'
+                                + '<span title = "Delete" class="DeleteSurvey"><img src="/images/CSAT-Application-icons/delete-icon.svg"></span>'
+                                + '</td>'
+                                + '<td>' + data.data[i].name + '</td>'
+                                + '<td>' + data.data[i].type + '</td>'
+                                + '<td>' + data.data[i].active + '</td>'
+                                + '<td>' + data.data[i].responseCount + '</td>'
+                                + '<td>' + data.data[i].createdBy + '</td>'
+                                + '<td>' + data.data[i].createdOn + '</td>'
+                                + '</tr>';
+                        });
+                        table.find('tbody').append(tr);
+                    }
+                    else {
+                        alert("No Data");
+                    }
+                },
+                Error: function() {
+                    alert("Error");
+                }
+            });
+
+        $("#tblSurvey").DataTable({
+            retrieve: true,
+            "scrollCollapse": true,
+            "searching": true,
+            "destroy": true,
+            "columnDefs": [
+                {
+                    "targets": 0,
+                    "orderable": false,
+                    "visible": true,
+                    "width": "5%"
+                },
+                {
+                    "targets": 1,
+                    "visible": true,
+                    "width": "25%"
+                },
+                {
+                    "targets": 2,
+                    "visible": true,
+                    "width": "20%"
+                },
+                {
+                    "targets": 3,
+                    "visible": true,
+                    className: 'dt-body-center',
+                    "width": "10%"
+                },
+                 {
+                    "targets": 4,
+                    "visible": true,
+                    className: 'dt-body-center',
+                    "width": "5%"
+                },
+                {
+                    "targets": 5,
+                    "visible": true,
+                    className: 'dt-body-center',
+                    "width": "15%"
+                },
+                {
+                    "targets": 6,
+                    "visible": true,
+                    className: 'dt-body-center',
+                    "width": "20%"
+                },
+                
+            ],
+            "order": [1, "ASC"],
+            "fnDrawCallback": function(oSettings) {
+                EventsOnDataTable();
+            }
+        });
+        EventsOnDataTable();
+    }
+
+    function EventsOnDataTable() {
+
+    }
+</script>

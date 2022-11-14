@@ -1,0 +1,48 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model CRSurveyApp.Models.Section
+
+<div class="row"></div>
+<div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+        <div class="row survey-title">
+            <label>Section</label>
+        </div>
+        @*<div class="row popup-bottom-border">
+        @*<h3 class="popup-header">@headerText Employee</h3>
+        <h3 class="popup-header">Question</h3>
+        </div>*@
+        @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "frmSection" }))
+        {
+            @Html.HiddenFor(m=>m.SectionId,new { id = "hdnSectionIdPopUp" })
+            @Html.HiddenFor(m=>m.OldSectionId,new { id = "hdnOldSectionIdPopUp" })
+            @Html.HiddenFor(m=>m.StartQueOrder,new { id = "hdnStartQueOrder" })
+            @Html.HiddenFor(m=>m.StartQueId,new { id = "hdnStartQueId" })
+            @Html.HiddenFor(m=>m.IsNew,new { id = "hdnIsNewSection" })
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-lg-12">
+                    @Html.TextBoxFor(m=>m.SectionName,new { @class = "form-control txtSectionName", id = "txtSectionName", placeholder="Section Name"  })
+                </div>
+            </div>
+            <br />
+             <div class="row">
+                <div class="col-md-12 col-sm-12 col-lg-12">
+                    @Html.TextAreaFor(m=>m.SectionDescription,new { @class = "form-control txtSection", id = "txtSectionDescription", placeholder="Section Description"  })
+                </div>
+            </div>
+            <br />
+            <div class="row popup-top-border">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="pull-right col-sm-7 col-md-7 col-lg-7">
+                        <input class="btn btn-primary col-md-5 col-md-5 col-lg-5" id="btnSaveSection" type="button" value="Save" style="background:#FF6801;color:White !important; width:150px" /> @*data-id="@Model.Id"*@
+                        <span class="" style="float: left">&nbsp;</span>
+                        <input class="btn btn-primary btnCancelPopup col-md-5 col-md-5 col-lg-5" type="button" value="Cancel" style="background:White;color:Black !important; width:150px" />
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

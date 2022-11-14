@@ -1,0 +1,504 @@
+2022-09-29 00:53:17.1844 Info Message Template Auto Format enabled
+2022-09-29 00:53:17.1984 Info Loading assembly: NLog.Web.AspNetCore
+2022-09-29 00:53:17.2838 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-09-29 00:53:17.3134 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-09-29 00:53:17.3395 Info Configuration initialized.
+2022-09-29 00:53:17.3630 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-09-29 00:55:06.1183 Info Message Template Auto Format enabled
+2022-09-29 00:55:06.1296 Info Loading assembly: NLog.Web.AspNetCore
+2022-09-29 00:55:06.1959 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-09-29 00:55:06.2228 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-09-29 00:55:06.2403 Info Configuration initialized.
+2022-09-29 00:55:06.2556 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-09-29 00:56:10.8151 Info Message Template Auto Format enabled
+2022-09-29 00:56:10.8354 Info Loading assembly: NLog.Web.AspNetCore
+2022-09-29 00:56:10.9631 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-09-29 00:56:11.0047 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-09-29 00:56:11.0342 Info Configuration initialized.
+2022-09-29 00:56:11.0551 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-09-29 00:58:44.3796 Info Message Template Auto Format enabled
+2022-09-29 00:58:44.3891 Info Loading assembly: NLog.Web.AspNetCore
+2022-09-29 00:58:44.4733 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-09-29 00:58:44.5063 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-09-29 00:58:44.5805 Info Configuration initialized.
+2022-09-29 00:58:44.6045 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-09-29 01:05:46.6753 Info Message Template Auto Format enabled
+2022-09-29 01:05:46.6881 Info Loading assembly: NLog.Web.AspNetCore
+2022-09-29 01:05:46.7906 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-09-29 01:05:46.8241 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-09-29 01:05:46.8529 Info Configuration initialized.
+2022-09-29 01:05:46.8730 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-09-29 01:13:51.5944 Info Message Template Auto Format enabled
+2022-09-29 01:13:51.6084 Info Loading assembly: NLog.Web.AspNetCore
+2022-09-29 01:13:51.7222 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-09-29 01:13:51.7483 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-09-29 01:13:51.7729 Info Configuration initialized.
+2022-09-29 01:13:51.7955 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-09-29 10:26:00.5434 Info Message Template Auto Format enabled
+2022-09-29 10:26:00.5578 Info Loading assembly: NLog.Web.AspNetCore
+2022-09-29 10:26:00.6318 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-09-29 10:26:00.6594 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-09-29 10:26:00.6841 Info Configuration initialized.
+2022-09-29 10:26:00.7120 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-09-29 10:39:21.0359 Info Message Template Auto Format enabled
+2022-09-29 10:39:21.0497 Info Loading assembly: NLog.Web.AspNetCore
+2022-09-29 10:39:21.1343 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-09-29 10:39:21.1579 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-09-29 10:39:21.1771 Info Configuration initialized.
+2022-09-29 10:39:21.1933 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-09-29 10:43:30.8806 Info Message Template Auto Format enabled
+2022-09-29 10:43:30.8936 Info Loading assembly: NLog.Web.AspNetCore
+2022-09-29 10:43:30.9941 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-09-29 10:43:31.0355 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-09-29 10:43:31.0601 Info Configuration initialized.
+2022-09-29 10:43:31.0766 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-09-29 10:46:54.5693 Info Message Template Auto Format enabled
+2022-09-29 10:46:54.5867 Info Loading assembly: NLog.Web.AspNetCore
+2022-09-29 10:46:54.7198 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-09-29 10:46:54.7657 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-09-29 10:46:54.7936 Info Configuration initialized.
+2022-09-29 10:46:54.8213 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-09-29 11:03:25.9143 Info Message Template Auto Format enabled
+2022-09-29 11:03:25.9332 Info Loading assembly: NLog.Web.AspNetCore
+2022-09-29 11:03:26.0209 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-09-29 11:03:26.0554 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=40, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-09-29 11:03:26.0820 Info Configuration initialized.
+2022-09-29 11:03:26.0999 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-09-29 11:08:01.8791 Info Message Template Auto Format enabled
+2022-09-29 11:08:01.8912 Info Loading assembly: NLog.Web.AspNetCore
+2022-09-29 11:08:01.9833 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-09-29 11:08:02.0108 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-09-29 11:08:02.0304 Info Configuration initialized.
+2022-09-29 11:08:02.0477 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-09-29 13:54:07.9110 Info Message Template Auto Format enabled
+2022-09-29 13:54:07.9234 Info Loading assembly: NLog.Web.AspNetCore
+2022-09-29 13:54:08.0289 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-09-29 13:54:08.0549 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-09-29 13:54:08.0747 Info Configuration initialized.
+2022-09-29 13:54:08.0962 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-09-29 14:18:27.6940 Info Message Template Auto Format enabled
+2022-09-29 14:18:27.7083 Info Loading assembly: NLog.Web.AspNetCore
+2022-09-29 14:18:27.8116 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-09-29 14:18:27.8382 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-09-29 14:18:27.8690 Info Configuration initialized.
+2022-09-29 14:18:27.8939 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-09-29 14:20:51.4984 Info Message Template Auto Format enabled
+2022-09-29 14:20:51.5075 Info Loading assembly: NLog.Web.AspNetCore
+2022-09-29 14:20:51.5696 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-09-29 14:20:51.5938 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-09-29 14:20:51.6149 Info Configuration initialized.
+2022-09-29 14:20:51.6315 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-09-29 14:21:20.7161 Info Message Template Auto Format enabled
+2022-09-29 14:21:20.7283 Info Loading assembly: NLog.Web.AspNetCore
+2022-09-29 14:21:20.8241 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-09-29 14:21:20.8515 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-09-29 14:21:20.8817 Info Configuration initialized.
+2022-09-29 14:21:20.9003 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-09-29 14:22:06.9262 Info Message Template Auto Format enabled
+2022-09-29 14:22:06.9386 Info Loading assembly: NLog.Web.AspNetCore
+2022-09-29 14:22:07.0316 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-09-29 14:22:07.0889 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-09-29 14:22:07.1149 Info Configuration initialized.
+2022-09-29 14:22:07.1322 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-09-29 14:23:32.1879 Info Message Template Auto Format enabled
+2022-09-29 14:23:32.1985 Info Loading assembly: NLog.Web.AspNetCore
+2022-09-29 14:23:32.2683 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-09-29 14:23:32.2964 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-09-29 14:23:32.3183 Info Configuration initialized.
+2022-09-29 14:23:32.3356 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-09-29 15:10:39.0288 Info Message Template Auto Format enabled
+2022-09-29 15:10:39.0433 Info Loading assembly: NLog.Web.AspNetCore
+2022-09-29 15:10:39.1228 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-09-29 15:10:39.1459 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-09-29 15:10:39.1674 Info Configuration initialized.
+2022-09-29 15:10:39.1851 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-09-29 15:12:23.7172 Info Message Template Auto Format enabled
+2022-09-29 15:12:23.7292 Info Loading assembly: NLog.Web.AspNetCore
+2022-09-29 15:12:23.8206 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-09-29 15:12:23.8547 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-09-29 15:12:23.8746 Info Configuration initialized.
+2022-09-29 15:12:23.8904 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-09-29 15:14:37.2941 Info Message Template Auto Format enabled
+2022-09-29 15:14:37.3090 Info Loading assembly: NLog.Web.AspNetCore
+2022-09-29 15:14:37.3788 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-09-29 15:14:37.4104 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-09-29 15:14:37.4324 Info Configuration initialized.
+2022-09-29 15:14:37.4526 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-09-29 15:16:27.5857 Info Message Template Auto Format enabled
+2022-09-29 15:16:27.5966 Info Loading assembly: NLog.Web.AspNetCore
+2022-09-29 15:16:27.7009 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-09-29 15:16:27.7290 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-09-29 15:16:27.7587 Info Configuration initialized.
+2022-09-29 15:16:27.7829 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-09-29 15:34:55.0977 Info Message Template Auto Format enabled
+2022-09-29 15:34:55.1372 Info Loading assembly: NLog.Web.AspNetCore
+2022-09-29 15:34:55.3108 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-09-29 15:34:55.3705 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-09-29 15:34:55.4121 Info Configuration initialized.
+2022-09-29 15:34:55.4416 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-09-29 15:38:36.2223 Info Message Template Auto Format enabled
+2022-09-29 15:38:36.2347 Info Loading assembly: NLog.Web.AspNetCore
+2022-09-29 15:38:36.3518 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-09-29 15:38:36.3937 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-09-29 15:38:36.4269 Info Configuration initialized.
+2022-09-29 15:38:36.4617 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-09-29 17:04:45.3121 Info Message Template Auto Format enabled
+2022-09-29 17:04:45.3291 Info Loading assembly: NLog.Web.AspNetCore
+2022-09-29 17:04:45.4635 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-09-29 17:04:45.5110 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-09-29 17:04:45.5341 Info Configuration initialized.
+2022-09-29 17:04:45.5603 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-09-29 19:52:45.9241 Info Message Template Auto Format enabled
+2022-09-29 19:52:45.9390 Info Loading assembly: NLog.Web.AspNetCore
+2022-09-29 19:52:46.0837 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-09-29 19:52:46.1363 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-09-29 19:52:46.1593 Info Configuration initialized.
+2022-09-29 19:52:46.1827 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-09-29 19:53:36.4328 Info Message Template Auto Format enabled
+2022-09-29 19:53:36.4541 Info Loading assembly: NLog.Web.AspNetCore
+2022-09-29 19:53:36.5795 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-09-29 19:53:36.6205 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-09-29 19:53:36.6700 Info Configuration initialized.
+2022-09-29 19:53:36.7001 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-09-29 19:59:06.4726 Info Message Template Auto Format enabled
+2022-09-29 19:59:06.5019 Info Loading assembly: NLog.Web.AspNetCore
+2022-09-29 19:59:06.6385 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-09-29 19:59:06.6818 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-09-29 19:59:06.7229 Info Configuration initialized.
+2022-09-29 19:59:06.7500 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-09-29 20:01:06.8349 Info Message Template Auto Format enabled
+2022-09-29 20:01:06.8504 Info Loading assembly: NLog.Web.AspNetCore
+2022-09-29 20:01:06.9399 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-09-29 20:01:06.9711 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-09-29 20:01:07.0003 Info Configuration initialized.
+2022-09-29 20:01:07.0262 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-09-29 20:02:22.7653 Info Message Template Auto Format enabled
+2022-09-29 20:02:22.8074 Info Loading assembly: NLog.Web.AspNetCore
+2022-09-29 20:02:22.9595 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-09-29 20:02:23.0740 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-09-29 20:02:23.1344 Info Configuration initialized.
+2022-09-29 20:02:23.1825 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-09-29 21:36:32.5856 Info Message Template Auto Format enabled
+2022-09-29 21:36:32.6054 Info Loading assembly: NLog.Web.AspNetCore
+2022-09-29 21:36:32.7184 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-09-29 21:36:32.7523 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-09-29 21:36:32.7823 Info Configuration initialized.
+2022-09-29 21:36:32.8311 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-09-29 21:38:29.4661 Info Message Template Auto Format enabled
+2022-09-29 21:38:29.4928 Info Loading assembly: NLog.Web.AspNetCore
+2022-09-29 21:38:29.8213 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-09-29 21:38:29.8795 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-09-29 21:38:29.9287 Info Configuration initialized.
+2022-09-29 21:38:30.0307 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-09-29 21:39:12.0808 Info Message Template Auto Format enabled
+2022-09-29 21:39:12.1003 Info Loading assembly: NLog.Web.AspNetCore
+2022-09-29 21:39:12.2433 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-09-29 21:39:12.2928 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-09-29 21:39:12.3349 Info Configuration initialized.
+2022-09-29 21:39:12.3656 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-09-29 21:44:24.5149 Info Message Template Auto Format enabled
+2022-09-29 21:44:24.5365 Info Loading assembly: NLog.Web.AspNetCore
+2022-09-29 21:44:24.7191 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-09-29 21:44:24.8075 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-09-29 21:44:24.8801 Info Configuration initialized.
+2022-09-29 21:44:24.9388 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-09-29 21:49:16.3135 Info Message Template Auto Format enabled
+2022-09-29 21:49:16.3313 Info Loading assembly: NLog.Web.AspNetCore
+2022-09-29 21:49:16.4729 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-09-29 21:49:16.5269 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-09-29 21:49:16.5534 Info Configuration initialized.
+2022-09-29 21:49:16.5991 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-09-29 21:55:32.8704 Info Message Template Auto Format enabled
+2022-09-29 21:55:32.8927 Info Loading assembly: NLog.Web.AspNetCore
+2022-09-29 21:55:33.0029 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-09-29 21:55:33.0553 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-09-29 21:55:33.0796 Info Configuration initialized.
+2022-09-29 21:55:33.1048 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-09-29 22:00:19.3069 Info Message Template Auto Format enabled
+2022-09-29 22:00:19.3244 Info Loading assembly: NLog.Web.AspNetCore
+2022-09-29 22:00:19.4218 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-09-29 22:00:19.4571 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-09-29 22:00:19.4828 Info Configuration initialized.
+2022-09-29 22:00:19.5028 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-09-29 22:03:02.7954 Info Message Template Auto Format enabled
+2022-09-29 22:03:02.8150 Info Loading assembly: NLog.Web.AspNetCore
+2022-09-29 22:03:02.9621 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-09-29 22:03:03.0027 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-09-29 22:03:03.0515 Info Configuration initialized.
+2022-09-29 22:03:03.0840 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-09-29 22:03:46.0712 Info Message Template Auto Format enabled
+2022-09-29 22:03:46.0967 Info Loading assembly: NLog.Web.AspNetCore
+2022-09-29 22:03:46.2133 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-09-29 22:03:46.2624 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-09-29 22:03:46.3115 Info Configuration initialized.
+2022-09-29 22:03:46.3410 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-09-29 22:04:42.7085 Info Message Template Auto Format enabled
+2022-09-29 22:04:42.7199 Info Loading assembly: NLog.Web.AspNetCore
+2022-09-29 22:04:42.7969 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-09-29 22:04:42.8535 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-09-29 22:04:42.8972 Info Configuration initialized.
+2022-09-29 22:04:42.9361 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-09-29 22:05:21.1450 Info Message Template Auto Format enabled
+2022-09-29 22:05:21.1709 Info Loading assembly: NLog.Web.AspNetCore
+2022-09-29 22:05:21.3696 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-09-29 22:05:21.4191 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-09-29 22:05:21.4536 Info Configuration initialized.
+2022-09-29 22:05:21.4798 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-09-29 22:06:12.2875 Info Message Template Auto Format enabled
+2022-09-29 22:06:12.3013 Info Loading assembly: NLog.Web.AspNetCore
+2022-09-29 22:06:12.3845 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-09-29 22:06:12.4098 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-09-29 22:06:12.4306 Info Configuration initialized.
+2022-09-29 22:06:12.4497 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-09-29 23:41:09.6874 Info Message Template Auto Format enabled
+2022-09-29 23:41:09.7053 Info Loading assembly: NLog.Web.AspNetCore
+2022-09-29 23:41:09.8014 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-09-29 23:41:09.8276 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-09-29 23:41:09.8460 Info Configuration initialized.
+2022-09-29 23:41:09.8640 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-09-29 23:51:42.6198 Info Message Template Auto Format enabled
+2022-09-29 23:51:42.6376 Info Loading assembly: NLog.Web.AspNetCore
+2022-09-29 23:51:42.7342 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-09-29 23:51:42.7600 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-09-29 23:51:42.7787 Info Configuration initialized.
+2022-09-29 23:51:42.7971 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-09-30 00:19:56.9956 Info Message Template Auto Format enabled
+2022-09-30 00:19:57.0150 Info Loading assembly: NLog.Web.AspNetCore
+2022-09-30 00:19:57.1089 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-09-30 00:19:57.1366 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-09-30 00:19:57.1583 Info Configuration initialized.
+2022-09-30 00:19:57.1763 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-09-30 00:28:24.5303 Info Message Template Auto Format enabled
+2022-09-30 00:28:24.5478 Info Loading assembly: NLog.Web.AspNetCore
+2022-09-30 00:28:24.6308 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-09-30 00:28:24.6607 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-09-30 00:28:24.6817 Info Configuration initialized.
+2022-09-30 00:28:24.7013 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-09-30 00:47:02.1812 Info Message Template Auto Format enabled
+2022-09-30 00:47:02.2016 Info Loading assembly: NLog.Web.AspNetCore
+2022-09-30 00:47:02.3300 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-09-30 00:47:02.3722 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-09-30 00:47:02.4035 Info Configuration initialized.
+2022-09-30 00:47:02.4318 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-09-30 00:54:56.1687 Info Message Template Auto Format enabled
+2022-09-30 00:54:56.1809 Info Loading assembly: NLog.Web.AspNetCore
+2022-09-30 00:54:56.2969 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-09-30 00:54:56.3409 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-09-30 00:54:56.3781 Info Configuration initialized.
+2022-09-30 00:54:56.3992 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-09-30 01:00:06.7740 Info Message Template Auto Format enabled
+2022-09-30 01:00:06.7902 Info Loading assembly: NLog.Web.AspNetCore
+2022-09-30 01:00:06.8942 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-09-30 01:00:06.9422 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-09-30 01:00:06.9712 Info Configuration initialized.
+2022-09-30 01:00:06.9969 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-09-30 21:17:21.3535 Info Message Template Auto Format enabled
+2022-09-30 21:17:21.4024 Info Loading assembly: NLog.Web.AspNetCore
+2022-09-30 21:17:21.5303 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-09-30 21:17:21.5574 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-09-30 21:17:21.5822 Info Configuration initialized.
+2022-09-30 21:17:21.6031 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-10-01 00:30:03.5363 Info Message Template Auto Format enabled
+2022-10-01 00:30:03.5560 Info Loading assembly: NLog.Web.AspNetCore
+2022-10-01 00:30:03.7081 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-10-01 00:30:03.7683 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-10-01 00:30:03.8242 Info Configuration initialized.
+2022-10-01 00:30:03.8652 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-10-01 00:36:22.3293 Info Message Template Auto Format enabled
+2022-10-01 00:36:22.3451 Info Loading assembly: NLog.Web.AspNetCore
+2022-10-01 00:36:22.4487 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-10-01 00:36:22.4777 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-10-01 00:36:22.4992 Info Configuration initialized.
+2022-10-01 00:36:22.5179 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-10-01 00:43:33.9789 Info Message Template Auto Format enabled
+2022-10-01 00:43:33.9922 Info Loading assembly: NLog.Web.AspNetCore
+2022-10-01 00:43:34.0721 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-10-01 00:43:34.0958 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-10-01 00:43:34.1170 Info Configuration initialized.
+2022-10-01 00:43:34.1353 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-10-01 00:54:07.4169 Info Message Template Auto Format enabled
+2022-10-01 00:54:07.4304 Info Loading assembly: NLog.Web.AspNetCore
+2022-10-01 00:54:07.5355 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-10-01 00:54:07.5708 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-10-01 00:54:07.6002 Info Configuration initialized.
+2022-10-01 00:54:07.6285 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-10-01 00:55:18.8493 Info Message Template Auto Format enabled
+2022-10-01 00:55:18.8493 Info Loading assembly: NLog.Web.AspNetCore
+2022-10-01 00:55:18.9862 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-10-01 00:55:19.0149 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-10-01 00:55:19.0464 Info Configuration initialized.
+2022-10-01 00:55:19.0697 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-10-01 00:56:23.3215 Info Message Template Auto Format enabled
+2022-10-01 00:56:23.3380 Info Loading assembly: NLog.Web.AspNetCore
+2022-10-01 00:56:23.4251 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-10-01 00:56:23.4586 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-10-01 00:56:23.4784 Info Configuration initialized.
+2022-10-01 00:56:23.4978 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-10-01 01:03:39.0996 Info Message Template Auto Format enabled
+2022-10-01 01:03:39.1128 Info Loading assembly: NLog.Web.AspNetCore
+2022-10-01 01:03:39.2337 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-10-01 01:03:39.2738 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-10-01 01:03:39.3127 Info Configuration initialized.
+2022-10-01 01:03:39.3449 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-10-01 01:05:27.8192 Info Message Template Auto Format enabled
+2022-10-01 01:05:27.8332 Info Loading assembly: NLog.Web.AspNetCore
+2022-10-01 01:05:27.9259 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-10-01 01:05:27.9530 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-10-01 01:05:27.9765 Info Configuration initialized.
+2022-10-01 01:05:27.9963 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-10-01 01:09:15.7118 Info Message Template Auto Format enabled
+2022-10-01 01:09:15.7297 Info Loading assembly: NLog.Web.AspNetCore
+2022-10-01 01:09:15.8305 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-10-01 01:09:15.8716 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-10-01 01:09:15.8954 Info Configuration initialized.
+2022-10-01 01:09:15.9223 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-10-01 01:23:03.7413 Info Message Template Auto Format enabled
+2022-10-01 01:23:03.7586 Info Loading assembly: NLog.Web.AspNetCore
+2022-10-01 01:23:03.8521 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-10-01 01:23:03.8838 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-10-01 01:23:03.9165 Info Configuration initialized.
+2022-10-01 01:23:03.9401 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-10-01 01:24:57.7249 Info Message Template Auto Format enabled
+2022-10-01 01:24:57.7386 Info Loading assembly: NLog.Web.AspNetCore
+2022-10-01 01:24:57.8015 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-10-01 01:24:57.8293 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-10-01 01:24:57.8468 Info Configuration initialized.
+2022-10-01 01:24:57.8678 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-10-01 01:30:48.6356 Info Message Template Auto Format enabled
+2022-10-01 01:30:48.6518 Info Loading assembly: NLog.Web.AspNetCore
+2022-10-01 01:30:48.7961 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-10-01 01:30:48.8257 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-10-01 01:30:48.8541 Info Configuration initialized.
+2022-10-01 01:30:48.8802 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-10-03 12:09:29.0636 Info Message Template Auto Format enabled
+2022-10-03 12:09:29.0803 Info Loading assembly: NLog.Web.AspNetCore
+2022-10-03 12:09:29.1543 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-10-03 12:09:29.1799 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-10-03 12:09:29.2060 Info Configuration initialized.
+2022-10-03 12:09:29.2264 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-10-03 12:21:21.1293 Info Message Template Auto Format enabled
+2022-10-03 12:21:21.1447 Info Loading assembly: NLog.Web.AspNetCore
+2022-10-03 12:21:21.2460 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-10-03 12:21:21.2918 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-10-03 12:21:21.3306 Info Configuration initialized.
+2022-10-03 12:21:21.3550 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-10-03 13:38:13.1377 Info Message Template Auto Format enabled
+2022-10-03 13:38:13.1538 Info Loading assembly: NLog.Web.AspNetCore
+2022-10-03 13:38:13.2770 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-10-03 13:38:13.3180 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-10-03 13:38:13.3574 Info Configuration initialized.
+2022-10-03 13:38:13.3881 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-10-03 14:50:49.1650 Info Message Template Auto Format enabled
+2022-10-03 14:50:49.1819 Info Loading assembly: NLog.Web.AspNetCore
+2022-10-03 14:50:49.2608 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-10-03 14:50:49.2905 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-10-03 14:50:49.3120 Info Configuration initialized.
+2022-10-03 14:50:49.3327 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-10-03 16:28:22.3798 Info Message Template Auto Format enabled
+2022-10-03 16:28:22.4122 Info Loading assembly: NLog.Web.AspNetCore
+2022-10-03 16:28:22.5166 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-10-03 16:28:22.5435 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-10-03 16:28:22.5639 Info Configuration initialized.
+2022-10-03 16:28:22.5857 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-10-05 20:03:43.5627 Info Message Template Auto Format enabled
+2022-10-05 20:03:43.5858 Info Loading assembly: NLog.Web.AspNetCore
+2022-10-05 20:03:43.9263 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-10-05 20:03:43.9948 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-10-05 20:03:44.0671 Info Configuration initialized.
+2022-10-05 20:03:44.1386 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-10-05 23:30:14.7786 Info Message Template Auto Format enabled
+2022-10-05 23:30:14.8043 Info Loading assembly: NLog.Web.AspNetCore
+2022-10-05 23:30:14.8951 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-10-05 23:30:14.9331 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-10-05 23:30:14.9560 Info Configuration initialized.
+2022-10-05 23:30:14.9778 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-10-05 23:48:51.3802 Info Message Template Auto Format enabled
+2022-10-05 23:48:51.3802 Info Loading assembly: NLog.Web.AspNetCore
+2022-10-05 23:48:51.4642 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-10-05 23:48:51.4912 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-10-05 23:48:51.5157 Info Configuration initialized.
+2022-10-05 23:48:51.5635 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-10-05 23:51:42.6010 Info Message Template Auto Format enabled
+2022-10-05 23:51:42.6155 Info Loading assembly: NLog.Web.AspNetCore
+2022-10-05 23:51:42.7300 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-10-05 23:51:42.7556 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-10-05 23:51:42.7750 Info Configuration initialized.
+2022-10-05 23:51:42.7952 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-10-06 00:15:18.0024 Info Message Template Auto Format enabled
+2022-10-06 00:15:18.0227 Info Loading assembly: NLog.Web.AspNetCore
+2022-10-06 00:15:18.1463 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-10-06 00:15:18.1927 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-10-06 00:15:18.2295 Info Configuration initialized.
+2022-10-06 00:15:18.2569 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-10-06 00:22:07.2513 Info Message Template Auto Format enabled
+2022-10-06 00:22:07.2746 Info Loading assembly: NLog.Web.AspNetCore
+2022-10-06 00:22:07.4178 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-10-06 00:22:07.4468 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-10-06 00:22:07.4696 Info Configuration initialized.
+2022-10-06 00:22:07.4893 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-10-06 00:24:57.9928 Info Message Template Auto Format enabled
+2022-10-06 00:24:58.0087 Info Loading assembly: NLog.Web.AspNetCore
+2022-10-06 00:24:58.1152 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-10-06 00:24:58.1464 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-10-06 00:24:58.1653 Info Configuration initialized.
+2022-10-06 00:24:58.2030 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-10-06 00:25:44.1293 Info Message Template Auto Format enabled
+2022-10-06 00:25:44.1516 Info Loading assembly: NLog.Web.AspNetCore
+2022-10-06 00:25:44.2803 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-10-06 00:25:44.3087 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-10-06 00:25:44.3348 Info Configuration initialized.
+2022-10-06 00:25:44.3587 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-10-06 00:46:34.0171 Info Message Template Auto Format enabled
+2022-10-06 00:46:34.0325 Info Loading assembly: NLog.Web.AspNetCore
+2022-10-06 00:46:34.1398 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-10-06 00:46:34.1671 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-10-06 00:46:34.1863 Info Configuration initialized.
+2022-10-06 00:46:34.2039 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-10-06 00:55:20.5583 Info Message Template Auto Format enabled
+2022-10-06 00:55:20.5789 Info Loading assembly: NLog.Web.AspNetCore
+2022-10-06 00:55:20.6723 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-10-06 00:55:20.7060 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-10-06 00:55:20.7300 Info Configuration initialized.
+2022-10-06 00:55:20.7498 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-10-06 00:57:36.9836 Info Message Template Auto Format enabled
+2022-10-06 00:57:37.0069 Info Loading assembly: NLog.Web.AspNetCore
+2022-10-06 00:57:37.1051 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-10-06 00:57:37.1361 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-10-06 00:57:37.1568 Info Configuration initialized.
+2022-10-06 00:57:37.1763 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-10-06 01:10:20.8210 Info Message Template Auto Format enabled
+2022-10-06 01:10:20.8386 Info Loading assembly: NLog.Web.AspNetCore
+2022-10-06 01:10:20.9687 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-10-06 01:10:20.9988 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-10-06 01:10:21.0232 Info Configuration initialized.
+2022-10-06 01:10:21.0424 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-11-02 12:56:47.6272 Info Message Template Auto Format enabled
+2022-11-02 12:56:47.6586 Info Loading assembly: NLog.Web.AspNetCore
+2022-11-02 12:56:48.0806 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-11-02 12:56:48.1943 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-11-02 12:56:48.4055 Info Configuration initialized.
+2022-11-02 12:56:48.8383 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-11-02 12:57:48.2151 Info Message Template Auto Format enabled
+2022-11-02 12:57:48.2620 Info Loading assembly: NLog.Web.AspNetCore
+2022-11-02 12:57:48.4645 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-11-02 12:57:48.5434 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-11-02 12:57:48.5983 Info Configuration initialized.
+2022-11-02 12:57:48.6432 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-11-02 12:58:40.6938 Info Message Template Auto Format enabled
+2022-11-02 12:58:40.7279 Info Loading assembly: NLog.Web.AspNetCore
+2022-11-02 12:58:40.9293 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-11-02 12:58:41.0144 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-11-02 12:58:41.0526 Info Configuration initialized.
+2022-11-02 12:58:41.0822 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-11-08 23:14:34.1068 Info Message Template Auto Format enabled
+2022-11-08 23:14:34.1546 Info Loading assembly: NLog.Web.AspNetCore
+2022-11-08 23:14:34.3319 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-11-08 23:14:34.3815 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-11-08 23:14:34.4109 Info Configuration initialized.
+2022-11-08 23:14:34.4383 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False
+2022-11-09 12:46:26.7601 Info Message Template Auto Format enabled
+2022-11-09 12:46:26.7786 Info Loading assembly: NLog.Web.AspNetCore
+2022-11-09 12:46:26.8990 Info Adding target AsyncTargetWrapper(Name=AllAsyncWrapper)
+2022-11-09 12:46:26.9295 Info Validating config: TargetNames=AllAsyncWrapper, ConfigItems=39, FilePath=D:\Workspace\git\CR Survey App - Role Assign\CRSurveyApp\bin\Debug\net6.0\NLog.config
+2022-11-09 12:46:26.9574 Info Configuration initialized.
+2022-11-09 12:46:26.9812 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.0.4.1331. Product version: 5.0.4+aa1d486dedd0a8ab6d32b2792e74cc86ae39a0aa. GlobalAssemblyCache: False

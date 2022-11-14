@@ -1,0 +1,336 @@
+﻿@using CRSurveyApp.Models
+@model CRSurveyApp.Models.AddRoleModel
+@{
+    ViewData["Title"] = "Add Role";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+    var headerText = Model.Role.Id > 0 ? "Edit" : "Add";
+    var buttonText = Model.Role.Id > 0 ? "Update" : "Save";
+}
+<style>
+    .form_error {
+        border-color: red;
+        border: 1px solid red !important;
+    }
+
+    .dual, #AvailableSurveys option, #AssignedSurveys option, #AvailableProjects option, #AssignedProjects option{
+        color: #333333 !important;
+        font-size: 16px;
+        font-weight: 400 !important;
+        font-style: normal;
+    }
+
+    .form-check-label{
+        margin-right:10px;
+    }
+    .AssignSelected {
+        background-image: url('/images/CSAT-Application-icons/arrow-right.svg');
+        margin-left: 25px;
+        margin-top: 25px;
+        background-repeat: no-repeat;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    .UnassignSelected {
+        background-image: url('/images/CSAT-Application-icons/arrow-left.svg');
+        margin-left: 25px;
+        margin-top: 65px;
+        background-repeat: no-repeat;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    .AssignAll {
+        background-image: url('/images/CSAT-Application-icons/double-arrow-right.svg');
+        margin-left: 25px;
+        margin-top: 105px;
+        background-repeat: no-repeat;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    .UnassignAll {
+        background-image: url('/images/CSAT-Application-icons/double-arrow-left.svg');
+        margin-left: 25px;
+        margin-top: 145px;
+        background-repeat: no-repeat;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    .main-head h3{
+        color: #013E7D;
+        font-weight: 700 !important;
+        font-size: 26px !important;
+        line-height: 31px;
+        font-style: normal;
+        padding-bottom:8px !important;
+    }
+</style>
+<div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+        <div class="row survey-title">
+            <label style="padding-left:26px;">@headerText Role</label>
+        </div>
+        @using (Html.BeginForm("CreateRole", "Role", FormMethod.Post, new { id = "frmAddRole" }))
+        {
+            <div class="container">
+                <div class="row">
+                    @Html.HiddenFor(m=>m.Role.Id,new { id = "hdnRoleId" })
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <span class="required">*</span>
+
+                            @Html.TextBoxFor(m=>m.Role.RoleName, new { @class = "form-control", id = "txtRoleName" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <div class="form-group">
+                            <label>Description</label>
+                            <span class="required">*</span>
+
+                            @Html.TextAreaFor(m=>m.Role.Description, new { @class = "form-control", id = "txtRoleDescription" })
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <div class="form-group main-head">
+                            <h3>Permissions</h3>
+                            @for (int i = 0; i < Model.Permissions.Count(); i++)
+                            {
+                                @Html.RadioButtonFor(m=>m.SelectedPermission,@Model.Permissions[i].PermissionId, new { @id = "radioPermission" })
+                                <label class="form-check-label" for="radioExample1">
+                                    @Model.Permissions[i].PermissionName
+                                </label>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                <div class="row">
+                     <div class="col-sm-12 col-md-12 col-lg-12">
+                        <div class="form-group main-head">
+
+                       <h3>Surveys</h3>
+                       </div>
+                        <div class="row survey-title">
+            <label style="padding-left:26px;">@headerText Role</label>
+        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-5 col-md-5 col-lg-5">
+                        <div class="form-group">
+                            <label class="dual" style="font-weight:700 !important;">Available Surveys</label>
+                            @*@Html.DropDownList("AvailableSurveys", new SelectList(Model.AvailableSurveys, "Id", "Name"), new { @class = "form-control", multiple = "multiple", style = "min-height:150px;" })*@
+                            @Html.DropDownListFor(m=>m.AvailableSurveys,new SelectList(Model.AvailableSurveys, "Id", "Name"), new { @class = "form-control",id="AvailableSurveys", multiple = "multiple", style = "min-height:150px;" })
+                        </div>
+                    </div>
+                    <div class="col-sm-2 col-md-2 col-lg-2" style="padding-left: 5%;">
+                        <span title="Assign Selected" class="AssignSelected" id="btnAssignSelectedSurvey"></span>
+                        <span title="Unassign Selected" class="UnassignSelected" id="btnUnassignSelectedSurvey"></span>
+                        <span title="Assign All" class="AssignAll" id="btnAssignAllSurvey"></span>
+                        <span title="Unassign All" class="UnassignAll" id="btnUnassignAllSurvey"></span>
+                    </div>
+                    <div class="col-sm-5 col-md-5 col-lg-5">
+                        <div class="form-group">
+                            <label class="dual" style="font-weight:700 !important;">Assigned Surveys</label>
+                            @* @Html.DropDownList("AssignedSurveys", new SelectList(Model.SelectedSurveys, "Id", "Name"), new { @class = "form-control", multiple = "multiple", style = "min-height:150px;" })*@
+                            @Html.DropDownListFor(m=>m.SelectedSurveys,new SelectList(Model.SelectedSurveys, "Id", "Name"), new { @class = "form-control",id="AssignedSurveys", multiple = "multiple", style = "min-height:150px;" })
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="row main-head">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <div class="form-group main-head">
+
+                            <h3>Projects</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-5 col-md-5 col-lg-5">
+                        <div class="form-group">
+                            <label class="dual" style="font-weight:700 !important;">Available Projects</label>
+                            @* @Html.DropDownList("AvailableProjects", new SelectList(Model.AvailableProjects, "Id", "Name"), new { @class = "form-control", multiple = "multiple", style = "min-height:150px;" })*@
+                            @Html.DropDownListFor(m=>m.AvailableProjects,new SelectList(Model.AvailableProjects, "Id", "Name"), new { @class = "form-control",id="AvailableProjects", multiple = "multiple", style = "min-height:150px;" })
+                        </div>
+                    </div>
+                    <div class="col-sm-2 col-md-2 col-lg-2" style="padding-left: 5%;">
+                        <span title="Assign Selected" class="AssignSelected" id="btnAssignSelectedProj"></span>
+                        <span title="Unassign Selected" class="UnassignSelected" id="btnUnassignSelectedProj"></span>
+                        <span title="Assign All" class="AssignAll" id="btnAssignAllProj"></span>
+                        <span title="Unassign All" class="UnassignAll" id="btnUnassignAllProj"></span>
+                    </div>
+                    <div class="col-sm-5 col-md-5 col-lg-5">
+                        <div class="form-group">
+                            <label class="dual" style="font-weight:700 !important;">Assigned Projects</label>
+                            @*@Html.DropDownList("AssignedProjects", new SelectList(Model.SelectedProjects, "Id", "Name"), new { @class = "form-control", multiple = "multiple", style = "min-height:150px;" })*@
+                            @Html.DropDownListFor(m=>m.SelectedProjects,new SelectList(Model.SelectedProjects, "Id", "Name"), new { @class = "form-control",id="AssignedProjects", multiple = "multiple", style = "min-height:150px;" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        
+        <div class="row popup-top-border">
+            <div class="col-sm-12 col-md-12 col-lg-12" style="text-align:-webkit-center;">
+                <div class="col-sm-7 col-md-7 col-lg-7">
+                    <input class="btn btn-primary col-md-5 col-md-5 col-lg-5" id="btnSave" type="button" value="Save" style="background:#FF6801;color:White !important; width:150px" /> @*data-id="@Model.Id"*@
+                    <span class="" style="float: left">&nbsp;</span>
+                    <input class="btn btn-primary btnCancelPopup col-md-5 col-md-5 col-lg-5" id="btnCancel" type="button" value="Cancel" style="background:White;color:Black !important; width:150px" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        /** Show add button and change text **/
+        $('#main-menu a').removeClass("active");
+        $('#role-menu').addClass("active");
+
+        $("#btnAdd").hide();
+
+
+        $("#btnAssignSelectedSurvey").click(function() {
+            if ($("#AssignedSurveys option:first").val() == "0") {
+                $("#AssignedSurveys").empty();
+            }
+            moveItems("#AvailableSurveys", "#AssignedSurveys");
+        });
+
+        $("#btnUnassignSelectedSurvey").click(function() {
+            moveItems("#AssignedSurveys", "#AvailableSurveys");
+
+        });
+        $("#btnAssignAllSurvey").click(function() {
+            if ($("#AssignedSurveys option:first").val() == "0") {
+                $("#AssignedSurveys").empty();
+            }
+            moveAllItems("#AvailableSurveys", "#AssignedSurveys");
+
+        });
+        $("#btnUnassignAllSurvey").click(function() {
+            moveAllItems("#AssignedSurveys", "#AvailableSurveys");
+        });
+
+        $("#btnAssignSelectedProj").click(function() {
+            if ($("#AssignedProjects option:first").val() == "0") {
+                $("#AssignedProjects").empty();
+            }
+            moveItems("#AvailableProjects", "#AssignedProjects");
+        });
+        $("#btnUnassignSelectedProj").click(function() {
+            moveItems("#AssignedProjects", "#AvailableProjects");
+        });
+        $("#btnAssignAllProj").click(function() {
+            if ($("#AssignedProjects option:first").val() == "0") {
+                $("#AssignedProjects").empty();
+            }
+            moveAllItems("#AvailableProjects", "#AssignedProjects");
+        });
+        $("#btnUnassignAllProj").click(function() {
+            moveAllItems("#AssignedProjects", "#AvailableProjects");
+        });
+
+        //Save role
+        $("#btnSave").click(function() {
+
+            if (Validate()) {
+                var surveys = $('#AssignedSurveys option');
+                var surveyValues = $.map(surveys, function(option) {
+                    return option.value;
+                });
+
+                var projects = $('#AssignedProjects option');
+                var projectsValues = $.map(projects, function(option) {
+                    return option.value;
+                });
+
+
+                var objRole = {
+                    Id: $("#hdnRoleId").val(),
+                    RoleName: $("#txtRoleName").val(),
+                    Description: $("#txtRoleDescription").val()
+                };
+
+                var objRoleDetails = {
+                    Role: objRole,
+                    Projects: projectsValues,
+                    Surveys: surveyValues,
+                    SelectedPermission: $('input[name=SelectedPermission]:checked').val()
+                };
+
+                $.ajax({
+                    url: 'SaveRole',
+                    type: 'POST',
+                    dataType: "json",
+                    data: {
+                        "AddRoleModel": objRoleDetails
+                    },
+                    success: function(response) {
+                        window.location.href = "@Url.Action("Roles", "Role")";
+                    },
+                    error: function(error) {
+                        alert("Error");
+                    }
+                });
+            }
+        });
+
+        $("#btnCancel").click(function() {
+            window.location.href = "@Url.Action("Roles", "Role")";
+        });
+
+        //remove validation error on focus
+        $("#txtRoleName").focus(function() {
+            $('#txtRoleName').removeClass("form_error");
+        });
+
+        $("#txtRoleDescription").focus(function() {
+            $('#txtRoleDescription').removeClass("form_error");
+        });
+
+    });
+    function moveItems(origin, dest) {
+        $(origin).find(':selected').appendTo(dest);
+    }
+    function moveAllItems(origin, dest) {
+        $(origin).children().appendTo(dest);
+    }
+    function Validate() {
+        var isValid = true;
+        //validate form
+        if ($("#txtRoleName").val().length == 0) {
+            $("#txtRoleName").addClass("form_error");
+            isValid = false;
+        }
+        if ($("#txtRoleDescription").val().length == 0) {
+            $("#txtRoleDescription").addClass("form_error");
+            isValid = false;
+        }
+        if ($("input:radio[name='SelectedPermission']").is(":checked")) {
+            isValid = true;
+        }
+        else {
+            alert("Please select a permission");
+            $("#radioPermission").addClass("form_error");
+            isValid = false;
+        }
+        return isValid;
+    }
+</script>

@@ -1,0 +1,257 @@
+﻿@using CRSurveyApp.Models
+@model CRSurveyApp.Models.AddProject
+@{
+    ViewData["Title"] = "Add Project";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+<style>
+    .optionDelete {
+        padding-top: 25px;
+    }
+
+    .form_error {
+        border-color: red;
+        border: 1px solid red !important;
+    }
+</style>
+<div id="popupModal" style="width: 1200px;
+        height: 900px;
+        display: none;
+        padding: 15px;"></div>
+@*<div class="row">
+    <h2><label id="title" style="padding-top:20px; padding-left:20px;">Add New Project</label></h2>
+</div>*@
+@using (Html.BeginForm("CreateProject", "Project", FormMethod.Post, new { id = "formAddProject" }))
+{
+    @Html.HiddenFor(m=>m.Id,new { id = "hdnProjectId" })
+    <div id="divProjectbody" class="container">
+        <div id="divProjectDetails" class="container">
+            <div class="row survey-title">
+                <label>Project Details</label>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-md-6 col-lg-6">
+                    <div class="form-group">
+                        <label>Project Name</label>
+                        @Html.TextBoxFor(m=>m.Name, new { @class = "form-control", id = "txtProjectName" })
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-6">
+                    <div class="form-group">
+                        <label>Project Status</label>
+                        @Html.DropDownListFor(m=>m.SelectedProjectStatus, new SelectList(Model.ProjectStatus, "Id", "Status"), "Select Project Status", new { @class = "form-control",@id="drpProjectStatus" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-md-6 col-lg-6">
+                    <div class="form-group">
+                        <label>Project Type</label>
+                        @Html.DropDownListFor(m=>m.SelectedProjectType, new SelectList(Model.ProjectType, "Id", "Type"), "Select Project Type", new { @class = "form-control",@id="drpProjectType" })
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-6">
+                    <div class="form-group">
+                        <label>Project Start Date</label>
+                        @Html.TextBoxFor(m=>m.StartDate, new { @class = "form-control", id = "txtProjectStDt" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-lg-12">
+                    <div class="form-group">
+                        <label>Project Description</label>
+                        @Html.TextAreaFor(m=>m.Description, new { @class = "form-control", id = "txtProjectDescription" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row survey-title">
+                    <label>Customer Contacts</label>
+            </div>
+            <div id="divCustCont" class="divCustCont">
+                @if (Model.CustomerContacts.Count() > 0)
+                {
+                    @*@foreach (CustomerContacts contacts in Model.CustomerContacts)*@
+                    @for (int i = 0; i < Model.CustomerContacts.Count; i++)
+                    {
+                        <div class="row ContactDiv">
+                            <div class="col-md-3 col-sm-3 col-lg-3">
+                                <div class="form-group">
+                                    <label>First Name</label>
+                                    @*@Html.TextBoxFor(m=>m.CustomerContacts.Where(x=>x.ContactId == contacts.ContactId).FirstOrDefault().FirstName, new { @class = "form-control custContact", id = "txtCustFirstName" })*@
+                                    @Html.TextBoxFor(m=>m.CustomerContacts[i].FirstName, new { @class = "form-control custContact", id = "txtCustFirstName" })
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-lg-3">
+                                <div class="form-group">
+                                    <label>Last Name</label>
+                                    @Html.TextBoxFor(m=>m.CustomerContacts[i].LastName, new { @class = "form-control custContact", id = "txtCustLastName" })
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-lg-3">
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    @Html.TextBoxFor(m=>m.CustomerContacts[i].Email, new { @class = "form-control custContact", id = "txtCustEmail" })
+                                </div>
+                            </div>
+                            @if (i > 0)
+                            {
+                                <div class="col-md-1 col-sm-1 col-lg-1" style="width:1%"><img class="optionDelete" src="/images/delete-icon.svg"></div>
+                            }
+                        </div>
+                    }
+                }
+            </div>
+            <div class="row">
+                <input type="button" id="btnAddCustConct" class="btn-custom btn btn-primary" style="background:#FF6801;border-color:#FF6801; color:White; width:77px; margin-left:14px;" value="Add" />
+            </div>
+        </div>
+    </div><br /><br />
+    <div class="row">
+       
+        <div class="col-md-12 col-sm-12 col-lg-12">
+            <div style="overflow:auto; text-align:center;">
+                <input type="button" id="btnCancel" class="btn-custom btn btn-primary" style="background:White;color:Black; width:150px" value="Cancel" />&nbsp;&nbsp;
+                <input type="button" id="btnSaveProject" class="btn-custom btn btn-primary" style="background:#FF6801;border-color:#FF6801; color:White; width:150px" value="Save" />
+            </div>
+        </div>
+    </div>
+}
+
+<script type="text/javascript">
+
+    //Function to set date  picker format
+    $(function() {
+        $("#txtProjectStDt").datepicker();
+    });
+
+    $(document).ready(function() {
+        // Hide add button on header
+        $("#btnAdd").hide();
+        $('#main-menu a').removeClass("active");
+        $('#projects-menu').addClass("active");
+        $("#btnSaveProject").click(function() {
+            if (Validate()) {
+
+                //Get customer contacts start
+                var objCustContacts = [];
+                var firstName = ''; var lastName = ''; var email = '';
+
+                $('.custContact').each(function(index, obj) {
+
+                    if (obj.id == "txtCustFirstName") {
+                        firstName = obj.value;
+                    }
+                    if (obj.id == "txtCustLastName") {
+                        lastName = obj.value;
+                    }
+                    if (obj.id == "txtCustEmail") {
+                        email = obj.value;
+                    }
+                    if ((index + 1) % 3 == 0) {
+                        objCustContacts.push({
+                            'FirstName': firstName,
+                            'LastName': lastName,
+                            'Email': email
+                        });
+                    }
+                });
+
+                //Get customer contacts end
+
+                // Get project details
+                var AddProject = {
+                    Id: $("#hdnProjectId").val(),
+                    Name: $("#txtProjectName").val(),
+                    SelectedProjectStatus: $("#drpProjectStatus option:selected").val(),
+                    SelectedProjectType: $("#drpProjectType option:selected").val(),
+                    StartDate: $("#txtProjectStDt").val(),
+                    Description: $("#txtProjectDescription").val(),
+                    CustomerContacts: objCustContacts
+                };
+
+                $.ajax({
+                    url: 'SaveProject',
+                    type: 'POST',
+                    dataType: "json",
+                    data: {
+                        "AddProject": AddProject
+                    },
+                    success: function() {
+                        window.location.href = "@Url.Action("Projects", "Project")";
+                    },
+                    error: function() {
+                        alert("Error");
+                    }
+                });
+
+
+            }
+        });
+
+        $("#btnCancel").click(function() {
+            window.location.href = "@Url.Action("Projects", "Project")";
+        });
+
+        //remove validation error on focus
+        $("#txtProjectName").focus(function() {
+            $('#txtProjectName').removeClass("form_error");
+        });
+        $("#drpProjectStatus").focus(function() {
+            $('#drpProjectStatus').removeClass("form_error");
+        });
+        $("#drpProjectType").focus(function() {
+            $('#drpProjectType').removeClass("form_error");
+        });
+        $("#txtProjectDescription").focus(function() {
+            $('#txtProjectDescription').removeClass("form_error");
+        });
+    });
+
+    //Validation
+    function Validate() {
+        var isValid = true;
+        //validate form
+        if ($("#txtProjectName").val().length == 0) {
+            $("#txtProjectName").addClass("form_error");
+            isValid = false;
+        }
+        if ($("#drpProjectStatus option:selected").val() == 0) {
+            $("#drpProjectStatus").addClass("form_error");
+            isValid = false;
+        }
+        if ($("#drpProjectType option:selected").val() == 0) {
+            $("#drpProjectType").addClass("form_error");
+            isValid = false;
+        }
+        if ($("#txtProjectDescription").val().length == 0) {
+            $("#txtProjectDescription").addClass("form_error");
+            isValid = false;
+        }
+
+        //Validate customer contacts
+        $('.custContact').each(function(index, obj) {
+            if (obj.value.length == 0) {
+                $(this).addClass("form_error");
+                isValid = false;
+            }
+            else {
+                $(this).removeClass("form_error");
+            }
+        });
+        return isValid;
+    }
+
+    // Add New Customer Contact
+    $("#btnAddCustConct").click(function() {
+        $("#divCustCont").append('<div class="row ContactDiv"><div class="col-md-3 col-sm-3 col-lg-3"><div class="form-group"><label>First Name</label><input class="form-control custContact" id="txtCustFirstName" name="FirstName" type="text" value=""></div></div><div class="col-md-3 col-sm-3 col-lg-3"><div class="form-group"><label>Last Name</label><input class="form-control custContact" id="txtCustLastName" name="LastName" type="text" value=""></div></div><div class="col-md-3 col-sm-3 col-lg-3"><div class="form-group"><label>Email</label><input class="form-control custContact" id="txtCustEmail" name="Email" type="text" value=""></div></div><div class="col-md-1 col-sm-1 col-lg-1" style="width:1%"><img class="optionDelete" src="/images/delete-icon.svg"></div></div>');
+    });
+
+    //option delete
+    $("#divCustCont").on("click", "img.optionDelete", function() {
+        $(this).parent().parent().empty();
+    });
+
+</script>

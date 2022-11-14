@@ -1,0 +1,70 @@
+﻿@using System.Security.Principal
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto"></ul>
+    @if (User.Identity?.IsAuthenticated == true)
+    {
+        <form class="form-inline my-2 my-lg-0">
+           @* <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <div class="profile-img">
+                <img src="~/images/avtar.png" alt="john">
+            </div>*@
+            <div class="username" style="display:block;">
+                <span><b>@User.Identity?.Name</b></span><br />
+                @*<span>Associate Director</span>*@
+            </div>
+
+            <div class="dropdown">
+                <button class="btn btn-default" type="button" data-toggle="dropdown">
+                    <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="nav-link text-dark" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignOut">Sign out</a></li>
+
+                </ul>
+            </div>
+        </form>
+    }
+    else
+    {
+         <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <div class="profile-img">
+                <img src="~/images/avtar.png" alt="john">
+            </div>
+            <div class="username" style="display:block;">
+                <span><b>John Deo</b></span><br />
+                <span>Associate Director</span>
+            </div>
+
+            <div class="dropdown">
+                <button class="btn btn-default" type="button" data-toggle="dropdown">
+                    <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Sign Out</a></li>
+
+                </ul>
+            </div>
+        </form>
+    }
+</div>
+
+@*@using System.Security.Principal
+
+<ul class="navbar-nav">
+@if (User.Identity?.IsAuthenticated == true)
+{
+        <span class="navbar-text text-dark">Hello @User.Identity?.Name!</span>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignOut">Sign out</a>
+        </li>
+}
+else
+{
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignIn">Sign in</a>
+        </li>
+}
+</ul>
+*@
+

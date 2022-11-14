@@ -1,0 +1,19 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Survey Results";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <iframe width="1000" height="850" src="https://datastudio.google.com/embed/reporting/5384e5a8-66aa-4f54-9634-6a55477f8a01/page/f3Y2C" frameborder="0" style="border:0" allowfullscreen></iframe>
+</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        // Hide add button on header
+        $("#btnAdd").hide();
+        $('#main-menu a').removeClass("active");
+        $('#result-menu').addClass("active");
+    });
+</script>

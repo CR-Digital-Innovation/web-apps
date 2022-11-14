@@ -1,0 +1,304 @@
+﻿@model CRSurveyClient.Models.SurveyModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = null;
+}
+
+<html>
+<head>
+    <title>
+        CriticalRiver Survey
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="~/images/critical_river_final.svg" alt="" width="230" height="41">
+            </a>
+        </div>
+    </nav>
+    <header>
+        <div class="header">
+            <div class="container">
+                <h6>CriticalRiver Survey</h6>
+            </div>
+        </div>
+    </header>
+    <div class="container" style="padding-bottom: 100px !important;">
+
+        @*<section class="section1">
+        <h3 id="title">@Model.SurveyName</h3>
+
+        </section>*@
+        <div class="row">
+            <div class="col-sm-1 col-md-1 col-lg-2 col-xl-2"></div>
+            <!--Empty column-->
+
+            <div class="col-sm-10 col-md-10 col-lg-8 col-xl-8">
+                <section class="section1">
+                    @Model.SurveyName
+                </section>
+                <div class="pagination">
+                    Page @Model.PageIndex of @Model.TotalPages
+                </div>
+                @using (Html.BeginForm("Survey", "LoadSurvey", FormMethod.Post, new { id = "survey-form" }))
+                {
+                    @Html.HiddenFor(m=>m.UniqueId)
+                    @Html.HiddenFor(m=>m.SurveyId)
+                    @Html.HiddenFor(m=>m.ProjectId)
+                    @Html.HiddenFor(m=>m.PageIndex,new{@id="hdnPageIndex"})
+                    @Html.HiddenFor(m=>m.EventType,new{@id="hdnEventType"})
+                    @if (@Model.TotalPages > 1)
+                    {
+                        <div class="card text-white mb-3">
+                            <div class="card-header">@Model.Section.SectionName</div>
+                            <div class="card-body">
+                                <p class="card-text">@Model.Section.SectionDescription</p>
+                            </div>
+                        </div>
+                    }
+                    @if (@Model.Questions != null)
+                    {
+                        @*@foreach (Question question in Model.Questions)*@
+                        @for (int i = 0; i < @Model.Questions.Count; i++)
+                        {
+                            @Html.HiddenFor(m=>m.Questions[i].QuestionId,new { id = "hdnQuestionID" })
+                            @Html.HiddenFor(m=>m.Questions[i].QuestionName,new { id = "hdnQuestionName" })
+                            @Html.HiddenFor(m=>m.Questions[i].QuestionTypes,new { id = "hdnQuestionType" })
+                            <div class="form-group que-section">
+                                <p>
+                                    @Model.Questions[i].QuestionName
+                                </p>
+                                @if (@Model.Questions[i].QuestionTypes == 1 || @Model.Questions[i].QuestionTypes == 2)
+                                {
+                                    @*@foreach (Option option in question.Options)*@
+                                    @for (int j = 0; j < Model.Questions[i].Options.Count; j++)
+                                    {
+                                        @if (@Model.Questions[i].QuestionTypes == 1)
+                                        {
+                                            @Html.RadioButtonFor(m=>m.Questions[i].SelectedMultiChoiceOption, Model.Questions[i].Options[j].Id, new {@id="radioID"})
+                                            <label class="form-check-label" for="radioExample1">
+                                                @Model.Questions[i].Options[j].OptionName
+                                            </label>
+                                        }
+                                        @if (@Model.Questions[i].QuestionTypes == 2)
+                                        {
+                                            @Html.HiddenFor(m=>m.Questions[i].Options[j].Id,new { id = "hdnOptionID" })
+                                            @Html.CheckBoxFor(m=>m.Questions[i].Options[j].IsSelected, new { @class = "checkBoxGroup"+@i })
+                                            <label class="form-check-label" for="radioExample1">
+                                                @Model.Questions[i].Options[j].OptionName
+                                            </label>
+
+                                        }
+                                        <br />
+                                    }
+                                }
+                                @if (@Model.Questions[i].QuestionTypes == 3)
+                                {
+                                    @Html.DropDownListFor(m=>m.Questions[i].SelectedMultiChoiceOption,new SelectList(Model.Questions[i].Options,"Id","OptionName"),"--Select--", new { @class = "form-control", id = "drpQuestion" })
+                                }
+                                @if (@Model.Questions[i].QuestionTypes == 4)
+                                {
+                                    @Html.TextBoxFor(m=>m.Questions[i].TextResponse,  new { @class = "form-control queText", id = "txtQuestion" })
+                                }
+                                @if (@Model.Questions[i].QuestionTypes == 5)
+                                {
+                                    @Html.TextAreaFor(m=>m.Questions[i].TextResponse,  new { @class = "form-control queText", id = "txtAreaQuestion" })
+                                }
+                                @if (@Model.Questions[i].QuestionTypes == 6)
+                                {
+                                    @if (@Model.Questions[i].Scale != null)
+                                    {
+                                        <div class="row">
+                                            <div class="col-md-1 col-sm-1 col-lg-1">
+                                            </div>
+                                            @for (int j = @Model.Questions[i].Scale.MinScale; j <= @Model.Questions[i].Scale.MaxScale; j++)
+                                            {
+                                                <div class="col-md-1 col-sm-1 col-lg-1">
+                                                    <span>@j</span>
+                                                </div>
+                                            }
+                                            <div class="col-md-1 col-sm-1 col-lg-1">
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div class="row">
+                                            <div class="col-md-1 col-sm-1 col-lg-1">
+                                                <span>@Model.Questions[i].Scale.MinLabel</span>
+                                            </div>
+                                            @for (int j = @Model.Questions[i].Scale.MinScale; j <= @Model.Questions[i].Scale.MaxScale; j++)
+                                            {
+                                                <div class="col-md-1 col-sm-1 col-lg-1 opt">
+                                                    @Html.RadioButtonFor(m=>m.Questions[i].SelectedMultiChoiceOption, j)
+                                                </div>
+                                            }
+                                            <div class="col-md-1 col-sm-1 col-lg-1">
+                                                <span>@Model.Questions[i].Scale.MaxLabel</span>
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                                @if (@Model.Questions[i].AddComments)
+                                {
+                                    <br />
+                                    <span>
+                                        Comments
+                                    </span>
+                                    <div class="row">
+                                        <div class="col-md-11 col-sm-11 col-lg-11">
+                                            @Html.TextBoxFor(m=>m.Questions[i].Comments,  new { @class = "form-control", id = "txtComments" })
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        }
+                    }
+                    <div style="overflow:auto;text-align:center" id="nextprevious">
+                        @if (@Model.TotalPages == @Model.PageIndex)
+                        {
+                            <input type="button" class="btn btn-primary submitbtn" id="btnSubmit" value="Submit" />
+                        }
+                        @if (@Model.TotalPages > 1 && @Model.PageIndex < @Model.TotalPages)
+                        {
+                            <input type="button" class="btn btn-primary backbtn" id="btnNext" value="Next" />
+                        }
+                        @if (@Model.PageIndex > 1)
+                        {
+                            <input type="button" class="btn btn-primary backbtn" id="btnBack" value="Back" />
+                        }
+                    </div>
+                }
+            </div>
+            <div class="col-sm-1 col-md-1 col-lg-2 col-xl-2"></div>
+            <!--Empty column-->
+        </div>
+    </div>
+    <footer class="fixed-bottom page-footer font-small blue">
+        <div class="container-fluid text-center text-md-left">
+            <div class="row footer-copyright text-center"> @*py-3*@
+                <div class="col-sm-12 col-md-12 col-sm-12 footerCl">&copy;&nbsp;Copyright @DateTime.Now.Year - CriticalRiver Survey App</div>
+
+
+               @* <div class="col-md-3 col-sm-12 footer-right">
+                    <a asp-area="" asp-page="/Privacy">Privacy</a>&nbsp;|<a asp-area="" asp-page="/Terms">&nbsp;Terms</a>&nbsp;|&nbsp;<a asp-area="" asp-page="/Sitemap">Sitemap</a>&nbsp;
+                </div>*@
+
+            </div>
+        </div>
+    </footer>
+    <script src="~/js/jquery-3.5.1.slim.min.js"></script>
+    <script src="~/js/popper.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/main.js" type="text/javascript"></script>
+
+</body>
+<script type="text/javascript">
+    $(document).ready(function() {
+        // Remove validation on div click
+        $(".que-section").click(function() {
+            $(this).removeClass("form_error");
+        });
+        $(".queText").click(function() {
+            $(this).removeClass("form_error");
+        });
+        
+        // Next button click event
+        $("#btnNext").click(function() {
+            if (validateRadioButtons() && validateCheckbox() && ValidateTextbox()) {
+                $("#hdnEventType").val(1);
+                $("#hdnPageIndex").val(@Model.PageIndex);
+                $("#survey-form").submit();
+            }
+        });
+
+        //Back button click event
+        $("#btnBack").click(function() {
+            $("#hdnEventType").val(2);
+            $("#hdnPageIndex").val(@Model.PageIndex);
+            $("#survey-form").submit();
+        });
+
+        $("#btnSubmit").click(function() {
+            if (validateRadioButtons() && validateCheckbox() && ValidateTextbox()) {
+                $("#hdnEventType").val(3);
+                $("#survey-form").submit();
+            }
+        });
+
+
+    });
+
+    // Validate radio button is selected for all radio controls on the page
+    function validateRadioButtons() {
+        var isValid = true;
+        var radioArray = new Array();
+        $("input[type=radio]").each(function() {
+
+            if ($.inArray($(this).attr("name"), radioArray) == -1) {
+                radioArray.push($(this).attr("name"));
+            }
+        });
+
+        if (radioArray.length > 0) {
+
+            for (var i = 0; i < radioArray.length; i++) {
+                if ($("input:radio[name='" + radioArray[i] + "']").is(":checked")) {
+                    $('[name="' + radioArray[i] + '"]').parent().closest('.que-section').removeClass("form_error");
+                }
+                else {
+                    isValid = false;
+                    $('[name="' + radioArray[i] + '"]').parent().closest('.que-section').addClass("form_error");
+                }
+            }
+        }
+        return isValid;
+    }
+
+    // Validate radio button is selected for all radio controls on the page
+    function validateCheckbox() {
+        var isValid = true;
+        var ChkArray = new Array();
+        $("input[type=checkbox]").each(function() {
+
+            if ($.inArray($(this).attr("class"), ChkArray) == -1) {
+                ChkArray.push($(this).attr("class"));
+            }
+        });
+
+        if (ChkArray.length > 0) {
+            for (var i = 0; i < ChkArray.length; i++) {
+                if ($("input:checkbox[class='" + ChkArray[i] + "']").is(":checked")) {
+                    $('[class="' + ChkArray[i] + '"]').parent().closest('.que-section').removeClass("form_error");
+                }
+                else {
+                    isValid = false;
+                    $('[class="' + ChkArray[i] + '"]').parent().closest('.que-section').addClass("form_error");
+                }
+            }
+        }
+        return isValid;
+    }
+
+    //validate all textbox and textareas 
+    function ValidateTextbox(){
+        var isValid = true;
+        $('.queText').each(function(index, obj) {
+            if (obj.value.length == 0) {
+                $(this).addClass("form_error");
+                isValid = false;
+            }
+            else {
+                $(this).removeClass("form_error");
+            }
+        });
+        return isValid;
+    }
+</script>
+</html>

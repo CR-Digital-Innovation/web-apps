@@ -1,0 +1,147 @@
+﻿@using CRSurveyApp.Models
+@model CRSurveyApp.Models.AddRoleAssignmentModel
+@{
+    ViewData["Title"] = "Add Role Assignment";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+<style>
+    .form_error {
+        border-color: red;
+        border: 1px solid red !important;
+    }
+
+</style>
+<div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+        <div class="row survey-title">
+            <label style="padding-left:26px;">Add Role Assignment</label>
+        </div>
+        @using (Html.BeginForm("CreateRoleAssignment", "RoleAssignment", FormMethod.Post, new { id = "frmAddRoleAssignment" }))
+        {
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="form-group">
+                            <label>User Name</label>
+                            <span class="required">*</span>
+
+                            @Html.TextBoxFor(m=>m.RoleAssignment.UserName, new { @class = "form-control", id = "txtUserName" })
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <span class="required">*</span>
+
+                            @Html.TextBoxFor(m=>m.RoleAssignment.Email, new { @class = "form-control", id = "txtEmailId" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="form-group">
+                            <label>Select Role</label>
+                            <span class="required">*</span>
+
+                            @Html.DropDownListFor(m=>m.SelectedRole, new SelectList(Model.Roles, "Id", "RoleName"), "Select Role", new { @class = "form-control",@id="drpRole" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+        <div class="row popup-top-border">
+            <div class="col-sm-12 col-md-12 col-lg-12" style="text-align:-webkit-center;">
+                <div class="col-sm-7 col-md-7 col-lg-7">
+                    <input class="btn btn-primary col-md-5 col-md-5 col-lg-5" id="btnSave" type="button" value="Save" style="background:#FF6801;color:White !important; width:150px" /> @*data-id="@Model.Id"*@
+                    <span class="" style="float: left">&nbsp;</span>
+                    <input class="btn btn-primary btnCancelPopup col-md-5 col-md-5 col-lg-5" id="btnCancel" type="button" value="Cancel" style="background:White;color:Black !important; width:150px" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        /** Show add button and change text **/
+        $('#main-menu a').removeClass("active");
+        $('#roleAssign-menu').addClass("active");
+
+        $("#btnAdd").hide();
+
+
+
+        //Save role
+        $("#btnSave").click(function() {
+
+            if (Validate()) {
+
+                // Get project details
+                var objRoleAssignments = {
+                    UserName: $("#txtUserName").val(),
+                    Email: $("#txtEmailId").val()
+                };
+
+                var objRoleAssignmentModel = {
+                    RoleAssignment: objRoleAssignments,
+                    SelectedRole:$("#drpRole option:selected").val()
+                };
+
+
+                $.ajax({
+                    url: 'SaveRoleAssignment',
+                    type: 'POST',
+                    dataType: "json",
+                    data: {
+                        "AddRoleAssignmentModel": objRoleAssignmentModel
+                    },
+                    success: function(response) {
+                        window.location.href = "@Url.Action("RoleAssignments", "RoleAssignment")";
+                    },
+                    error: function(error) {
+                        alert("Error");
+                    }
+                });
+            }
+        });
+
+        $("#btnCancel").click(function() {
+            window.location.href = "@Url.Action("Roles", "Role")";
+        });
+
+        //remove validation error on focus
+        $("#txtUserName").focus(function() {
+            $('#txtUserName').removeClass("form_error");
+        });
+
+        $("#txtEmailId").focus(function() {
+            $('#txtEmailId').removeClass("form_error");
+        });
+
+        $("#drpRole").focus(function() {
+            $('#drpRole').removeClass("form_error");
+        });
+
+    });
+
+    function Validate() {
+        var isValid = true;
+
+        //validate form
+        if ($("#txtUserName").val().length == 0) {
+            $("#txtUserName").addClass("form_error");
+            isValid = false;
+        }
+        if ($("#txtEmailId").val().length == 0) {
+            $("#txtEmailId").addClass("form_error");
+            isValid = false;
+        }
+        if ($("#drpRole option:selected").val() == 0) {
+            $("#drpRole").addClass("form_error");
+            isValid = false;
+        }
+
+        return isValid;
+    }
+</script>

@@ -1,0 +1,442 @@
+﻿@model CRSurveyApp.Models.ProjectFilter
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@{
+    //ViewData["Title"] = "Home page";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<script src="~/js/jquery-3.3.1.min.js"></script>
+
+<link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<link href="https://cdn.datatables.net/scroller/1.5.1/css/scroller.dataTables.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/scroller/1.5.1/js/dataTables.scroller.min.js"></script>
+
+<link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/1.10.20/css/dataTables.jqueryui.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/scroller/2.0.1/css/scroller.jqueryui.min.css" rel="stylesheet" />
+
+<style>
+    
+    .DeleteProject {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+
+    .EditProject img, .DeleteProject img, .SendSurvey img{
+        width:18px;
+        height:18px;
+    }
+    .form_error {
+        border-color: red;
+        border: 1px solid red !important;
+    }
+</style>
+
+<div id="popupModal" style="width: 1200px;
+        height: 900px;
+        display: none;
+        padding: 15px;">
+</div>
+@using (Html.BeginForm("Projects", "Project", FormMethod.Post, new { id = "formProject" }))
+{
+    @Html.HiddenFor(m=>m.SelectedProjectId,new { id = "hdnProjectId" })
+    <div class="container">
+        <div class="row survey-title">
+            <label>Projects</label>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="tile" id="inProgress">
+
+                    <div class="row" style="margin-bottom:5px;">
+                        <div class="col-3 icon-stat"><img src="~/images/CSAT-Application-icons/In-Progress.svg" /></div>
+                        <div class="col-9 stat-name">Surveys Sent</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3 stat-number">@Model.SurveyStats.SurvySentCount</div>
+
+                        <div class="col-9 lastactivity">
+                            <button type="button" class="show-btn">Show</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-3 tiles">
+                <div class="tile" id="atRisk">
+
+                    <div class="row" style="margin-bottom:5px;">
+                        <div class="col-3 icon-stat"><img src="~/images/CSAT-Application-icons/at-risk.svg" /></div>
+                        <div class="col-9 stat-name">At Risk</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3 stat-number">@Model.SurveyStats.ProjectAtRiskCount</div>
+
+                        <div class="col-9 lastactivity">
+                            <button type="button" class="show-btn">Show</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 tiles">
+                <div class="tile" id="completed-with-survey">
+
+                    <div class="row">
+                        <div class="col-3 icon-stat" style="padding-left:8px !important;"><img src="~/images/CSAT-Application-icons/Group 69.svg" /></div>
+                        <div class="col-9 stat-name">Survey Completed</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3 stat-number">@Model.SurveyStats.SurvyCompletedCount</div>
+
+                        <div class="col-9 lastactivity">
+                            <button type="button" class="show-btn">Show</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 tiles">
+                <div class="tile" id="customer-satisfaction-rating">
+
+                    <div class="row">
+                        <div class="col-3 icon-stat"><img src="~/images/CSAT-Application-icons/customer-satification-rating.svg" /></div>
+                        <div class="col-9 stat-name">CSAT</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 stat-number">@Model.SurveyStats.AvgRating
+                        </div>
+                        <div class="col-6 lastactivity">
+                            <button type="button" class="show-btn" id="btnShowResults">Show</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div> <br />
+        <div class="row">
+            <div class="col-md-2">
+                <div class="form-group pd-select">
+                    @Html.DropDownListFor(m=>m.ProjectParam.StatusId, new SelectList(Model.ProjectStatus, "Id", "Status"), "All Status", new { @class = "form-control",@id="drpStatus" } )
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group pd-select">
+                    @Html.DropDownListFor(m=>m.ProjectParam.ResponseId, new SelectList(Model.SurveyResponse, "Id", "Response"), "All Survey Response", new { @class = "form-control",@id="drpResponse" } )
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group pd-select">
+                    @Html.DropDownListFor(m=>m.ProjectParam.ProjectId, new SelectList(Model.Projects, "Id", "Name"), "All Projects", new { @class = "form-control",@id="drpProject" } )
+                </div>
+            </div>
+            <div class="offset-2">
+            </div>
+           @* <div class="col-md-3" style="text-align:right;">
+                <div class="form-group pd-select">
+                    <a href="#"> <img src="~/images/CSAT-Application-icons/export-CSV.svg" />&nbsp;<span>Export CSV</span></a>
+                </div>
+            </div>*@
+        </div>
+    </div>
+    <div class="col-md-12 col-sm-12 col-lg-12 table-data" style="overflow:scroll;margin-bottom:5%;">
+        <table id="tblProject" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Actions</th>
+                    <th>Project Name</th>
+                    <th>Account</th>
+                    <th>Start Date</th>
+                    <th>Status</th>
+                    <th>Type</th>
+                    <th>Created By</th>
+                    <th>Response Received?</th>
+                    <th>Response Date</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+}
+<script type="text/javascript">
+
+    $(document).ready(function() {
+        // show add button and change text
+        $('#main-menu a').removeClass("active");
+        $('#projects-menu').addClass("active");
+        $("#btnAdd").show();
+        $("#btnAdd").prop('value', 'Add Project');
+
+        // Create dialog
+        $("#popupModal").dialog({
+            autoOpen: false,
+            modal: true,
+            minWidth: 1000,
+            dialogClass: 'dialogue-border',
+            draggable: true,
+            resizable: false
+        });
+
+        BindDataTable();
+
+        // Add project click event
+        $("#btnAdd").click(function() {
+            $("#hdnProjectId").val(0);
+            $("#formProject").submit();
+        });
+
+        // Edit project event
+        $(".EditProject").off('click').on('click', function(e) {
+            var id = $(this).parents('td').attr('data-id');
+            $("#hdnProjectId").val(id);
+            $("#formProject").submit();
+        });
+
+        // Delete project
+        $(".DeleteProject").off('click').on('click', function(e) {
+            var id = $(this).parents('td').attr('data-id');
+
+            if (confirm("Are you sure you want to delete project " + $(this).parents('tr').find('td:nth-child(2)').text() + " along with it's customer contacts ?")) {
+                $.ajax({
+                    url: 'DeleteProject',
+                    type: 'POST',
+                    async: false,
+                    data: { id: id },
+                    success: function(response) {
+
+                    },
+                    error: function(error) {
+                    }
+                });
+                window.location.href = "@Url.Action("Projects", "Project")";
+            }
+        });
+
+        // Send project survey
+        $(".SendSurvey").off('click').on('click', function(e) {
+            var projectId = $(this).parents('td').attr('data-id');
+            $.ajax({
+                url: 'SendSurveyModelPopup',
+                type: 'GET',
+                async: false,
+                data: { projectId: projectId },
+                success: function(data) {
+                    $("#popupModal").html(data);
+                    $("#popupModal").dialog('open');
+
+                    SendSurveyModelPopupEvents();
+                },
+                error: function(error) {
+                    currentEle.prop("disabled", false);
+                }
+            });
+        });
+
+        $("#drpStatus").change(function() {
+            BindDataTable();
+        });
+        $("#drpProject").change(function() {
+            BindDataTable();
+        });
+        $("#drpResponse").change(function() {
+            BindDataTable();
+        });
+
+        $("#btnShowResults").click(function() {
+            window.location.href = "@Url.Action("Results", "Result")";
+        });
+    });
+
+    function SendSurveyModelPopupEvents() {
+
+        //remove validation error on focus
+        $("#drpSendSurvey").focus(function() {
+            $('#drpSendSurvey').removeClass("form_error");
+        });
+        $("#drpSendCustContact").focus(function() {
+            $('#drpSendCustContact').removeClass("form_error");
+        });
+        $("#txtSubject").focus(function() {
+            $('#txtSubject').removeClass("form_error");
+        });
+        $("#txtBody").focus(function() {
+            $('#txtBody').removeClass("form_error");
+        });
+
+        $("#drpSendSurvey").change(function() {
+            var surveyId = $("#drpSendSurvey option:selected").val();
+            $.ajax({
+                url: 'GetEmailContent',
+                type: 'GET',
+                async: false,
+                data: { surveyId: surveyId },
+                success: function(data) {
+                    $("#txtSubject").val(data.data.subject);
+                    $("#txtBody").val("Hello " + $("#drpSendCustContact option:selected").text() + ", \n" + data.data.body);
+                    $("#hdnUniqueID").val(data.data.uniqueID);
+                },
+                error: function(error) {
+
+                }
+            });
+        });
+
+        $("#btnSend").click(function() {
+
+            if (Validate()) {
+                var objSendSurveyModel = {
+                    ProjectId: $("#hdnProjectIdSendSurvey").val(),
+                    SelectedSurvey: $("#drpSendSurvey option:selected").val(),
+                    SelectedContacts: $("#drpSendCustContact option:selected").val(),
+                    Subject: $("#txtSubject").val(),
+                    Body: $("#txtBody").val(),
+                    UniqueID: $("#hdnUniqueID").val()
+                };
+
+                $.ajax({
+                    url: 'SendSurvey',
+                    type: 'POST',
+                    dataType: "json",
+                    data: { "SendSurveyModel": objSendSurveyModel },
+                    success: function() {
+                        CloseActiveDialog();
+                    },
+                    error: function(error) {
+
+                    }
+                });
+            }
+        });
+
+        //Validation
+        function Validate() {
+            var isValid = true;
+            //validate form
+            if ($("#drpSendSurvey option:selected").val() == 0) {
+                $("#drpSendSurvey").addClass("form_error");
+                isValid = false;
+            }
+            if ($("#drpSendCustContact option:selected").val() == 0) {
+                $("#drpSendCustContact").addClass("form_error");
+                isValid = false;
+            }
+            if ($("#txtSubject").val().length == 0) {
+                $("#txtSubject").addClass("form_error");
+                isValid = false;
+            }
+            if ($("#txtBody").val().length == 0) {
+                $("#txtBody").addClass("form_error");
+                isValid = false;
+            }
+
+            //Validate customer contacts
+            $('.custContact').each(function(index, obj) {
+                if (obj.value.length == 0) {
+                    $(this).addClass("form_error");
+                    isValid = false;
+                }
+                else {
+                    $(this).removeClass("form_error");
+                }
+            });
+            return isValid;
+        }
+
+        // Close model popup
+        function CloseActiveDialog() {
+            $(".ui-dialog:visible .ui-dialog-content").dialog('close');
+        }
+    }
+
+
+    // Function to bind role details data table
+    function BindDataTable() {
+
+        var datatbl = $("#tblProject").DataTable();
+        datatbl.clear();
+        datatbl.destroy();
+
+        var table = $("#tblProject");
+        table.find('tbody tr').empty();
+
+        var projectFilters = {};
+        projectFilters.StatusId = $("#drpStatus option:selected").val();
+        projectFilters.ProjectId = $("#drpProject option:selected").val();
+        projectFilters.ResponseId = $("#drpResponse option:selected").val();
+
+        // Bind Jquery datatable
+        $.ajax({
+            url: "GetProjectDetails",
+            type: "GET",
+            data: projectFilters,
+            async: false,
+            success: function(data) {
+                if (data.data != null && data.data != undefined) {
+                    var tr = '';
+                    $.each(data.data, function(i, e) {
+                        tr += '<tr>'
+                            + '<td data-id="' + data.data[i].id + '" style="text-align:center;">'
+                            + '<span title = "Edit" class="EditProject"><img src="/images/CSAT-Application-icons/edit-icon.svg"></span>'
+                            + '<span title = "Delete" class="DeleteProject"><img src="/images/CSAT-Application-icons/delete-icon.svg"></span>'
+                            + '<span title = "Send" class="SendSurvey"><img src="/images/CSAT-Application-icons/send.svg"></span>'
+                            + '</td>'
+                            + '<td>' + data.data[i].name + '</td>'
+                            + '<td>' + data.data[i].account + '</td>'
+                            + '<td>' + data.data[i].goLiveDate + '</td>'
+                            + '<td>' + data.data[i].status + '</td>'
+                            + '<td>' + data.data[i].type + '</td>'
+                            + '<td>' + data.data[i].createdBy + '</td>'
+                            + '<td>' + data.data[i].surveyResponse + '</td>'
+                            + '<td>' + data.data[i].responseDate + '</td>'
+                            + '</tr>';
+                    });
+                    table.find('tbody').append(tr);
+                }
+                else {
+                    alert("No Data");
+                }
+            },
+            Error: function() {
+                alert("Error");
+            }
+        });
+
+        $("#tblProject").DataTable({
+            retrieve: true,
+            "scrollCollapse": true,
+            "searching": true,
+            "destroy": true,
+            "columnDefs": [
+                {
+                    "targets": 0,
+                    "orderable": false,
+                    "visible": true,
+                    "width": "25px"
+                },
+                {
+                    "targets": 7,
+                     className: 'dt-body-center',
+                },
+                {
+                    "targets": 8,
+                    className: 'dt-body-center',
+                }
+            ],
+            "order": [1, "ASC"],
+            "fnDrawCallback": function(oSettings) {
+                EventsOnDataTable();
+            }
+        });
+        EventsOnDataTable();
+    }
+
+    function EventsOnDataTable() {
+
+    }
+
+
+
+
+</script>

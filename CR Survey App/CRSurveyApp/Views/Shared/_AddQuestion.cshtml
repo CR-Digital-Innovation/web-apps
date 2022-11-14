@@ -1,0 +1,220 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model CRSurveyApp.Models.Question
+
+<style>
+    /*    legend {
+                        border: none;
+                        width: auto;
+                        text-align: center;
+                        padding-left: 10px;
+                        padding-right: 10px;
+                        font-weight: 700;
+                        font-size: 14px;
+                    }
+
+                    fieldset {
+                        border: 1px solid #cccccc;
+                        border-radius: 7px;
+                        margin-bottom: 15px;
+                    }
+
+                    .ui-dialog {
+                        z-index: 10100 !important;
+                    }
+
+                    .popup-bottom-border {
+                        border-bottom: 2px solid #ebecf0;
+                        margin-bottom: 20px;
+                    }
+
+                    .popup-top-border {
+                        border-top: 2px solid #ebecf0;
+                        padding-top: 20px;
+                    }
+
+                    .dialogue-border {
+                        border: 1px solid #ebecf0 !important;
+                        border-radius: 4px !important;
+                        box-shadow: 0 8px 16px -4px rgba(9,30,66,0.25), 0 0 1px rgba(9,30,66,0.31) !important;
+                    }
+
+                    .popup-header {
+                        margin-top: 0;
+                        text-align: center;
+                        font-family: inherit;
+                        font-weight: 500;
+                        line-height: 1.1;
+                    }
+
+                    .ui-widget, .ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
+                        font-size: 16px !important;
+                        font-family: 'Lato' !important;
+                        font-style: normal !important;
+                        font-weight: 700 !important;
+                        line-height: 19px !important;
+                        color: #333333 !important;
+                    }*/
+</style>
+
+<div class="row"></div>
+<div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+        <div class="row survey-title">
+            <label>Question</label>
+        </div>
+        @*<div class="row popup-bottom-border">
+        @*<h3 class="popup-header">@headerText Employee</h3>
+        <h3 class="popup-header">Question</h3>
+        </div>*@
+        @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "frmQuestion" }))
+        {
+            <div class="que-section" data-id=@Model.QuestionId>
+                <div class="row">
+                    @Html.HiddenFor(m=>m.QuestionId,new { id = "hdnQuestionID" })
+                    @Html.HiddenFor(m=>m.SectionId,new { id = "hdnSectionIDQuePopup" })
+                    @Html.HiddenFor(m=>m.DisplayOrder,new { id = "hdnDisplayOrderQuePopup" })
+                </div>
+                <div class="row">
+                    <div class="col-md-9 col-sm-9 col-lg-9">
+                        @* @Html.TextBoxFor(m=>m.Questions.Where(x=>x.Id == item.Id).FirstOrDefault().Name,new { @class = "form-control", id = "txtQuestion", placeholder="Question..."  })*@
+                        @* @Html.TextBoxFor(m=>m.Questions[0].Name,new { @class = "form-control", id = "txtQuestion", placeholder="Question..."  })*@
+                        @* @Html.TextBoxFor(m=>m.Name,new { @class = "form-control", id = "txtQuestion", placeholder="Question..."  })*@
+                        @*<input type="text" class="form-control" id="txtQuestion" placeholder="Question..." />*@
+                        @Html.TextBoxFor(m=>m.QuestionName,new { @class = "form-control", id = "txtQuestion", placeholder="Question..."  })
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-lg-3">
+                        @*@Html.DropDownListFor(m=>m.Questions.Where(x=>x.Id == item.Id).FirstOrDefault().SelectedQuestionTypes, new SelectList(Model.Questions[0].QuestionTypes, "Id", "Name"), "Multiple choice", new { @class = "form-control",@id="drpQuestionType" })*@
+                        @Html.DropDownListFor(m=>m.SelectedQuestionTypes, new SelectList(Model.QuestionTypes, "Id", "Name"), "Multiple choice", new { @class = "form-control drpQType",@id="drpQuestionType" })
+                    </div>
+                </div>
+                <div class="option-section" id="divOptionSection">
+                    @if (@Model.SelectedQuestionTypes == 0 || @Model.SelectedQuestionTypes == 1 || @Model.SelectedQuestionTypes == 2 || @Model.SelectedQuestionTypes == 3)
+                    {
+                        //@foreach (var option in Model.Options)
+                        @for (int i = 0; i < Model.Options.Count(); i++)
+                        {
+                            //@Html.HiddenFor(m=>m.Options[option.Id].Id,new { id = "hdnMultichoiceOptionID" })
+                            <br />
+                            <div id="divOptions">
+                                <div class="row">
+
+                                    <div class="col-md-1 col-sm-1 col-lg-1" style="width:1%">
+                                        @if (@Model.SelectedQuestionTypes == 0 || @Model.SelectedQuestionTypes == 1)
+                                        {
+                                            <img src="~/images/circle.svg" />
+                                        }
+                                        @if (@Model.SelectedQuestionTypes == 2)
+                                        {
+                                            <img src="~/images/square.svg" />
+                                        }
+                                    </div>
+                                    <div class="col-md-8 col-sm-8 col-lg-8">
+                                        @*@Html.TextBoxFor(m=>m.Questions.Where(x=>x.Id == item.Id).FirstOrDefault().Options.FirstOrDefault().Name,new { @class = "form-control", id = "txtOption" })*@
+                                        @* @Html.TextBoxFor(m=>m.Options[option.Id].Name,new { @class = "form-control txtOption", id = "txtOption" })*@
+                                        @* @Html.TextBoxFor(m=>m.Options,new { @class = "form-control txtOption", id = "txtOption" })*@
+                                        @*<input type="text" class="form-control txtOption" id="txtOption" , value="Option 1" />*@
+                                        @Html.TextBoxFor(m=>m.Options[i],new { @class = "form-control txtOption", id = "txtOption" })
+                                    </div>
+                                    @*if more than 1 option then add delete icon next to option *@
+                                    @if (i >= 1)
+                                    {
+                                        <div class="col-md-1 col-sm-1 col-lg-1" style="width:1%"><img class="optionDelete" src="/images/delete-icon.svg"></div>
+                                    }
+                                    <br />
+                                    <br />
+                                </div><br />
+                            </div>
+
+                        }
+                        <br />
+                        <div class="row">
+                            <div class="col-md-1 col-sm-1 col-lg-1" style="width:1%">
+                                @if (@Model.SelectedQuestionTypes == 0 || @Model.SelectedQuestionTypes == 1)
+                                {
+                                    <img src="~/images/circle.svg" />
+                                }
+                                @if (@Model.SelectedQuestionTypes == 2)
+                                {
+                                    <img src="~/images/square.svg" />
+                                }
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-lg-3">
+                                <span id="spAddOption" class="spanAddOption">Add option</span> or <span id="spAddOther" class="txtOtherOption">Add "Other"</span>
+                            </div>
+                        </div>
+
+                    }
+                    @if (@Model.SelectedQuestionTypes == 4)
+                    {
+                        <br />
+                        <div class="row">
+                            <div class="col-md-8 col-sm-8 col-lg-8">
+                                <input type="text" value="" id="txtPara" class="form-control" placeholder="Short answer text" readonly="readonly" />
+                            </div>
+                        </div>
+                    }
+                    @if (@Model.SelectedQuestionTypes == 5)
+                    {
+                        <br />
+                        <div class="row">
+                            <div class="col-md-8 col-sm-8 col-lg-8">
+                                <input type="text" value="" id="txtPara" class="form-control" placeholder="Long answer text" readonly="readonly" />
+                            </div>
+                        </div>
+                    }
+                    @if (@Model.SelectedQuestionTypes == 6) // Linear Scale
+                    {
+                        <br />
+                        <div class="row">
+                            <div class="col-md-1 col-sm-1 col-lg-1">
+                                @Html.DropDownListFor(m=>m.Scale.MinScale,new SelectList(Model.ScaleLowValues), "1", new { @class = "dropdown-toggle",@id="drpScaleMinValue" })
+                            </div>
+                            To
+                            <div class="col-md-1 col-sm-1 col-lg-1">
+                                @Html.DropDownListFor(m=>m.Scale.MaxScale,new SelectList(Model.ScaleHighValues), "5", new { @class = "form-control",@id="drpScaleMaxValue" })
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-md-2 col-sm-2 col-lg-2">
+                                <label>Minimum value label</label>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-lg-4">
+                                @Html.TextBoxFor(m=>m.Scale.MinLabel,new { @class = "form-control", id = "txtMinLabel", placeholder="Minimum value label (optional)" })
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-md-2 col-sm-2 col-lg-2">
+                                <label>Maximum value label</label>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-lg-4">
+                                @Html.TextBoxFor(m=>m.Scale.MaxLabel,new { @class = "form-control", id = "txtMaxLabel", placeholder="Maximum value label (optional)" })
+                            </div>
+                        </div>
+                    }
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-4 col-sm-4 col-lg-4">
+                        @Html.CheckBoxFor(m=>m.AddComments, new { id="chkAddComments"} )
+                        <span id="spAddOther" class="txtOtherOption"> Add comments box</span>
+                    </div>
+                </div>
+            </div>
+            <br />
+        }
+        <div class="row popup-top-border">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="pull-right col-sm-7 col-md-7 col-lg-7">
+                    <input class="btn btn-primary col-md-5 col-md-5 col-lg-5" id="btnSaveQuestion" type="button" value="Save" style="background:#FF6801;color:White !important; width:150px" /> @*data-id="@Model.Id"*@
+                    <span class="" style="float: left">&nbsp;</span>
+                    <input class="btn btn-primary btnCancelPopup col-md-5 col-md-5 col-lg-5" type="button" value="Cancel" style="background:White;color:Black !important; width:150px" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

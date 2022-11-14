@@ -1,0 +1,203 @@
+﻿@model CRSurveyApp.Models.RoleModel
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@*<script src="~/js/jquery-3.3.1.min.js"></script>*@
+
+<link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<link href="https://cdn.datatables.net/scroller/1.5.1/css/scroller.dataTables.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/scroller/1.5.1/js/dataTables.scroller.min.js"></script>
+
+<link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/1.10.20/css/dataTables.jqueryui.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/scroller/2.0.1/css/scroller.jqueryui.min.css" rel="stylesheet" />
+
+<style>
+    .DeleteRole {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+
+        .EditRole img, .DeleteRole img {
+        width:18px;
+        height:18px;
+    }
+   
+</style>
+<div id="popupModal" style="width: 1800px;
+        height: 900px;
+        display: none;
+        padding: 15px;">
+</div>
+@using (Html.BeginForm("Roles", "Role", FormMethod.Post, new { id = "formRole" }))
+{
+    @Html.HiddenFor(m=>m.SelectedRoleId,new { id = "hdnRoleId" })
+    <div class="container">
+        <div class="row survey-title">
+            <label>Roles</label>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    @Html.DropDownListFor(m=>m.SelectedRoleId, new SelectList(Model.Roles, "Id", "RoleName"), "Select Role", new { @class = "form-control",@id="drpRole" } )
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 col-sm-12 col-lg-12 table-data" style="overflow:scroll;margin-bottom:5%;">
+        <table id="tblRole" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th style="width:50px;">Actions</th>
+                    <th>Role</th>
+                    <th>Description</th>
+                    <th>Last Modified By</th>
+                    <th>Last Modified On</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+}
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        /** Show add button and change text **/
+        $('#main-menu a').removeClass("active");
+        $('#role-menu').addClass("active");
+
+        $("#btnAdd").show();
+        $("#btnAdd").prop('value', 'Add Role');
+
+        // Create dialog
+        $("#popupModal").dialog({
+            autoOpen: false,
+            modal: true,
+            minWidth: 1000,
+            dialogClass: 'dialogue-border',
+            draggable: true,
+            resizable: false
+        });
+
+        BindDataTable();
+
+        // Add Survey event handler
+        $("#btnAdd").click(function() {
+            $("#hdnRoleId").val(0);
+            $("#formRole").submit();
+        });
+
+        // Edit Survey event handler
+        $(".EditRole").off('click').on('click', function(e) {
+            var id = $(this).parents('td').attr('data-id');
+            $("#hdnRoleId").val(id);
+            $("#formRole").submit();
+        });
+
+        // Delete Survey event handler
+        $(".DeleteRole").off('click').on('click', function(e) {
+            var id = $(this).parents('td').attr('data-id');
+            if (confirm("Are you sure you want to delete role " + $(this).parents('tr').find('td:nth-child(2)').text() + " ?")) {
+                $.ajax({
+                    url: 'Role/DeleteRole',
+                    type: 'GET',
+                    async: false,
+                    data: { id: id },
+                    success: function(response) {
+
+                    },
+                    error: function(error) {
+                    }
+                });
+            }
+        });
+
+        $("#drpRole").change(function() {
+
+            BindDataTable();
+        });
+    });
+
+    // Function to bind role details data table
+    function BindDataTable() {
+
+        var datatbl = $("#tblRole").DataTable();
+        datatbl.clear();
+        datatbl.destroy();
+
+        var table = $("#tblRole");
+        table.find('tbody tr').empty();
+
+        var roleParam = {};
+        roleParam.SelectedRole = $("#drpRole option:selected").val();
+
+
+        $.ajax({
+            url: "GetFilteredRoles",
+            type: "GET",
+            data: roleParam,
+            async: false,
+            success: function(data) {
+                if (data.data != null && data.data != undefined) {
+                    var tr = '';
+                    $.each(data.data, function(i, e) {
+                        tr += '<tr>'
+                            + '<td data-id="' + data.data[i].id + '" style="text-align:center;">'
+                            + '<span title = "Edit" class="EditRole"><img src="/images/CSAT-Application-icons/edit-icon.svg"></span>'
+                            + '<span title = "Delete" class="DeleteRole"><img src="/images/CSAT-Application-icons/delete-icon.svg"></span>'
+                            + '</td>'
+                            + '<td>' + data.data[i].roleName + '</td>'
+                            + '<td>' + data.data[i].description + '</td>'
+                            + '<td>' + data.data[i].lastModifiedBy + '</td>'
+                            + '<td>' + data.data[i].lastModifiedOn + '</td>'
+                            + '</tr>';
+                    });
+                    table.find('tbody').append(tr);
+                }
+                else {
+                    alert("No Data");
+                }
+            },
+            Error: function() {
+                alert("Error");
+            }
+        });
+
+        $("#tblRole").DataTable({
+            retrieve: true,
+            "scrollCollapse": true,
+            "searching": true,
+            "destroy": true,
+            "columnDefs": [
+                {
+                    "targets": 0,
+                    "orderable": false,
+                    "visible": true,
+                    "width": "25px"
+                },
+                {
+                    "targets": 1,
+                    "visible": true,
+                    "width": "150px"
+                },
+                {
+                    "targets": 2,
+                    "visible": true,
+                    "width": "500px"
+                },
+            ],
+            "order": [1, "ASC"],
+            "fnDrawCallback": function(oSettings) {
+                EventsOnDataTable();
+            }
+        });
+        EventsOnDataTable();
+    }
+
+    function EventsOnDataTable() {
+
+    }
+</script>
