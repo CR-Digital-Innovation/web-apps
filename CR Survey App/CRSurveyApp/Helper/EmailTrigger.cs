@@ -15,7 +15,7 @@ namespace CRSurveyApp.Helper
                 emailClient.EnableSsl = true;
                 emailClient.Host = "smtp.office365.com";
                 emailClient.UseDefaultCredentials = false;
-                emailClient.Credentials = new System.Net.NetworkCredential("coe-devsecops@criticalriver.com", "devsecops-CR");
+                emailClient.Credentials = new System.Net.NetworkCredential("email id", "password");
 
                 emailClient.Send("coe-devsecops@criticalriver.com", SendSurveyModel.SelectedContacts, SendSurveyModel.Subject, SendSurveyModel.Body);
                 emailClient.Dispose();
