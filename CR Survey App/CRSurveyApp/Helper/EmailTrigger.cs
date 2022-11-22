@@ -17,7 +17,7 @@ namespace CRSurveyApp.Helper
                 emailClient.UseDefaultCredentials = false;
                 emailClient.Credentials = new System.Net.NetworkCredential("email id", "password");
 
-                emailClient.Send("coe-devsecops@criticalriver.com", SendSurveyModel.SelectedContacts, SendSurveyModel.Subject, SendSurveyModel.Body);
+                emailClient.Send("email id", SendSurveyModel.SelectedContacts, SendSurveyModel.Subject, SendSurveyModel.Body);
                 emailClient.Dispose();
                 return true;
             }
