@@ -16,7 +16,6 @@ namespace CRSurveyApp.Helper
         public HttpClient GetSurveyAPI()
         {
             var client = new HttpClient();
-            //client.BaseAddress = new Uri("https://crsurveyapiappservice.azurewebsites.net");
             client.BaseAddress = new Uri(ApiUrl);
             return client;
         }
